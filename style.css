@@ -1,0 +1,177 @@
+@font-face {
+	font-family: 'Peix';
+	src: url(fonts/Peix.woff2) format('woff2-variations'),
+		url(fonts/Peix.woff) format('woff-variations');
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url(fonts/Switzer-Variable.woff2) format('woff2-variations');
+}
+
+@font-face {
+	font-family: 'Jetbrains';
+	src: url(fonts/JetBrainsMono-Variable.woff2) format('woff2-variations');
+}
+
+body {
+	background-color: #fff30f;
+	font-family: Switzer;
+	margin: 0;
+}
+
+a {
+	cursor: url(images/cursor.svg), pointer;
+}
+
+img {
+	display: block;
+	width: 100%;
+}
+
+video {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: left 0.5s ease, transform 0.5s ease;
+}
+
+/* typography */
+
+.largetext {
+	font-family: Peix;
+	line-height: 0.8;
+	width: 100%;
+}
+
+.mediumtext {
+	font-size: 2.5rem;
+	line-height: 1.2;
+}
+
+.smalltext {
+	font-family: Jetbrains;
+	font-size: 0.8rem;
+}
+
+.codetext {
+	font-family: Jetbrains;
+	font-size: 1.5rem;
+	color: #74985d;
+}
+
+.indent {
+	text-indent: 1.5em;
+}
+
+.textalign-right {
+	text-align: right;
+}
+
+.trimtext {
+	text-box-trim: trim-both;
+	text-box-edge: cap alphabetic;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	border: 2px solid black;
+	padding: 0 5px;
+}
+
+a:hover {
+	background-color: #ed2127;
+}
+
+/* spacing */
+
+.mt {
+	margin-top: 1rem;
+}
+
+.mb {
+	margin-bottom: 1rem;
+}
+
+.ml {
+	margin-left: 2rem;
+}
+
+.mr {
+	margin-right: 2rem;
+}
+
+/* colours */
+
+.swatch {
+	border: 1px solid black;
+	width: 25%;
+	height: 50px;
+}
+
+.bg-yellow {
+	background-color: #fff30f;
+}
+
+.bg-red {
+	background-color: #ed2127;
+}
+
+.bg-black {
+	background-color: black;
+}
+
+/* layout */
+
+.width50 {
+	width: 50%;
+}
+
+.width25 {
+	width: 25%;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.fullscreen {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.sticky {
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+}
+
+/* grid */
+
+.grid-8-col {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 16px 16px;
+}
+
+.item-6-col {
+	grid-column: 1 / 7;
+}
+
+.item-2-col {
+	grid-column: span 2;
+}
+
+.item-1-col {
+	grid-column: auto;
+}
