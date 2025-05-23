@@ -1,7 +1,18 @@
+// accept button
+function accept() {
+	const body = document.body
+	const overlay = document.querySelector('.overlay')
+	const video = document.querySelector('video')
+	overlay.style.display = 'none'
+	body.style.overflow = 'visible'
+	video.muted = false
+	video.play()
+}
+
 // full-width text
 function fitText() {
-	const elements = document.querySelectorAll('.largetext p')
-	elements.forEach(el => {
+	const fullscreenText = document.querySelectorAll('.fullscreen-text p')
+	fullscreenText.forEach(el => {
 		textFit(el, {
 			alignHoriz: true,
 			alignVert: false,

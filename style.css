@@ -18,10 +18,33 @@ body {
 	background-color: #fff30f;
 	font-family: Switzer;
 	margin: 0;
+	/* overflow: hidden; */
 }
 
+/* elements */
+
 a {
-	cursor: url(images/cursor.svg), pointer;
+	text-decoration: none;
+	color: black;
+}
+
+.medium-text a {
+	position: relative;
+	border: 2px solid black;
+	padding: 0 5px;
+}
+
+.medium-text a:hover {
+	background-color: #ed2127;
+}
+
+.nav a {
+	border: none;
+	padding: 0;
+}
+
+.nav a:hover {
+	text-decoration: underline;
 }
 
 img {
@@ -37,25 +60,64 @@ video {
 	transition: left 0.5s ease, transform 0.5s ease;
 }
 
+button {
+	height: 33vh;
+	background-color: #fff30f;
+}
+
+button:hover {
+	background-color: #ed2127;
+}
+
+a .popup {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: black;
+	color: white;
+	padding: 1rem;
+	font-size: 0.9rem;
+	line-height: 1.3;
+	width: 300px;
+	z-index: 10;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+	transform: translateY(0.5rem);
+}
+
+a:hover .popup {
+	display: block;
+}
+
 /* typography */
 
-.largetext {
+.fullscreen-text {
 	font-family: Peix;
 	line-height: 0.8;
 	width: 100%;
 }
 
-.mediumtext {
+.large-text {
+	font-family: Peix;
+	font-size: 12rem;
+}
+
+.large-text-sans {
+	font-size: 5rem;
+	line-height: 1;
+}
+
+.medium-text {
 	font-size: 2.5rem;
 	line-height: 1.2;
 }
 
-.smalltext {
+.small-text {
 	font-family: Jetbrains;
 	font-size: 0.8rem;
 }
 
-.codetext {
+.code-text {
 	font-family: Jetbrains;
 	font-size: 1.5rem;
 	color: #74985d;
@@ -74,17 +136,6 @@ video {
 	text-box-edge: cap alphabetic;
 }
 
-a {
-	text-decoration: none;
-	color: black;
-	border: 2px solid black;
-	padding: 0 5px;
-}
-
-a:hover {
-	background-color: #ed2127;
-}
-
 /* spacing */
 
 .mt {
@@ -101,6 +152,18 @@ a:hover {
 
 .mr {
 	margin-right: 2rem;
+}
+
+.pl {
+	padding-left: 2rem;
+}
+
+.pr {
+	padding-right: 2rem;
+}
+
+.padding {
+	padding: 2rem;
 }
 
 /* colours */
@@ -133,27 +196,46 @@ a:hover {
 	width: 25%;
 }
 
-.container {
+.height100 {
+	height: 100%;
+}
+
+.flex {
 	display: flex;
-	flex-wrap: wrap;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.space-between {
 	justify-content: space-between;
 }
 
-.fullscreen {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
+.center {
 	align-items: center;
 	justify-content: center;
+}
+
+.fullscreen {
 	box-sizing: border-box;
-	padding-left: 2rem;
-	padding-right: 2rem;
+	height: 100vh;
+	width: 100vw;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
 }
 
 .sticky {
 	position: fixed;
 	top: 2rem;
 	right: 2rem;
+	bottom: 2rem;
 }
 
 /* grid */
