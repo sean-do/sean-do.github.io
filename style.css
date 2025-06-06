@@ -28,10 +28,15 @@ a {
 	color: black;
 }
 
-.medium-text a {
+a.link {
 	position: relative;
-	border: 2px solid black;
+	white-space: nowrap;
 	padding: 0 5px;
+}
+
+a.link,
+button {
+	border: 2px solid black;
 }
 
 .medium-text a:hover {
@@ -49,7 +54,7 @@ a {
 
 img {
 	display: block;
-	width: 100%;
+	width: 150px;
 }
 
 video {
@@ -109,7 +114,7 @@ a:hover .popup {
 
 .medium-text {
 	font-size: 2.5rem;
-	line-height: 1.2;
+	line-height: 1.1;
 }
 
 .small-text {
@@ -166,6 +171,10 @@ a:hover .popup {
 	padding: 2rem;
 }
 
+.padding-s {
+	padding: 1rem;
+}
+
 /* colours */
 
 .swatch {
@@ -200,6 +209,10 @@ a:hover .popup {
 	height: 100%;
 }
 
+.relative {
+	position: relative;
+}
+
 .flex {
 	display: flex;
 }
@@ -225,17 +238,50 @@ a:hover .popup {
 }
 
 .overlay {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 999;
 }
 
-.sticky {
+.side-bar {
+	position: sticky;
+	top: 2rem;
+	height: calc(100vh - 4rem);
+}
+
+.notification {
+	color: white;
+	top: 0;
+	width: calc(100% - 2rem);
+	position: absolute;
+	text-align: left;
+}
+
+.popup {
+	display: none;
+}
+
+.popup.active {
+	display: block;
+}
+
+.absolute-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* .sticky {
 	position: fixed;
 	top: 2rem;
 	right: 2rem;
 	bottom: 2rem;
+} */
+
+.glitch-gif {
+	position: absolute;
+	width: 200px;
 }
 
 /* grid */

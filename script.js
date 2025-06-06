@@ -1,3 +1,18 @@
+//video width
+function updateVideoWidth() {
+	const parent = document.querySelector('.item-2-col')
+	const video = document.getElementById('video')
+
+	if (parent && video) {
+		const width = parent.offsetWidth
+		video.style.width = `${width}px`
+	}
+}
+
+window.addEventListener('resize', updateVideoWidth)
+window.addEventListener('scroll', updateVideoWidth) // In case of layout shift
+updateVideoWidth()
+
 // accept button
 function accept() {
 	const body = document.body
@@ -7,7 +22,47 @@ function accept() {
 	body.style.overflow = 'visible'
 	video.muted = false
 	video.play()
+
+	const appliedTimes = {}
+
+	video.addEventListener('timeupdate', function () {
+		const changesAtCurrentTime = classChanges.filter(
+			change => video.currentTime >= change.time && !appliedTimes[change.time]
+		)
+
+		changesAtCurrentTime.forEach(change => {
+			const elements = document.querySelectorAll(change.target)
+
+			if (change.remove) {
+				const removeClasses = Array.isArray(change.remove) ? change.remove : [change.remove]
+				elements.forEach(el => removeClasses.forEach(cls => el.classList.remove(cls)))
+			}
+
+			if (change.add) {
+				const addClasses = Array.isArray(change.add) ? change.add : [change.add]
+				elements.forEach(el => addClasses.forEach(cls => el.classList.add(cls)))
+			}
+
+			appliedTimes[change.time] = true
+		})
+	})
 }
+
+// glitch effect
+const videoOverlay = document.querySelector('.video-overlay')
+const original = document.querySelector('.glitch-gif')
+
+for (let i = 0; i < 12; i++) {
+	const clone = original.cloneNode(true)
+	const x = Math.random() * window.innerWidth
+	const y = Math.random() * window.innerHeight
+
+	clone.style.left = `${x}px`
+	clone.style.top = `${y}px`
+	videoOverlay.appendChild(clone)
+}
+
+original.style.display = 'none'
 
 // full-width text
 function fitText() {
@@ -55,20 +110,20 @@ fetch('https://ipapi.co/json/')
 		document.getElementById('location').textContent = location.toUpperCase()
 	})
 	.catch(() => {
-		document.getElementById('location').textContent = 'Location unavailable'
+		document.getElementById('location').textContent = 'why are you hiding your position?'
 	})
 
 // change position of video on scroll
-const myDiv = document.getElementById('video')
+const video = document.getElementById('video')
 
 window.addEventListener('scroll', () => {
 	if (window.scrollY > 50) {
 		// Move it to the right: 2rem from right edge
-		myDiv.style.left = 'calc(100% - 2rem)'
-		myDiv.style.transform = 'translateX(-100%) translateY(-50%)'
+		video.style.left = 'calc(100% - 2rem)'
+		video.style.transform = 'translateX(-100%) translateY(-50%)'
 	} else {
 		// Back to center
-		myDiv.style.left = '50%'
-		myDiv.style.transform = 'translate(-50%, -50%)'
+		video.style.left = '50%'
+		video.style.transform = 'translate(-50%, -50%)'
 	}
 })
