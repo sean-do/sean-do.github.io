@@ -1,17 +1,45 @@
-//video width
-function updateVideoWidth() {
+//update width
+function updateWidth() {
 	const parent = document.querySelector('.item-2-col')
 	const video = document.getElementById('video')
+	const notifications = document.querySelectorAll('.notification-stack')
 
-	if (parent && video) {
+	if (parent && video && notifications) {
 		const width = parent.offsetWidth
 		video.style.width = `${width}px`
+		notifications.forEach(notification => {
+			notification.style.width = `${width}px`
+		})
 	}
 }
 
-window.addEventListener('resize', updateVideoWidth)
-window.addEventListener('scroll', updateVideoWidth) // In case of layout shift
-updateVideoWidth()
+window.addEventListener('resize', updateWidth)
+window.addEventListener('scroll', updateWidth) // In case of layout shift
+updateWidth()
+
+// full-width text
+function fitText() {
+	const fullscreenText = document.querySelectorAll('.fullscreen-text p')
+	fullscreenText.forEach(p => {
+		textFit(p, {
+			alignHoriz: true,
+			alignVert: false,
+			multiLine: false,
+			maxFontSize: 999,
+			widthOnly: true,
+		})
+	})
+}
+
+// Run once fonts are ready
+if (document.fonts && document.fonts.ready) {
+	document.fonts.ready.then(fitText)
+} else {
+	document.addEventListener('load', fitText)
+}
+
+// Re-run on resize
+window.addEventListener('resize', fitText)
 
 // accept button
 function accept() {
@@ -32,6 +60,23 @@ function accept() {
 
 		changesAtCurrentTime.forEach(change => {
 			const elements = document.querySelectorAll(change.target)
+			const notifications = document.querySelector('.notification-stack')
+
+			if (change.type === 'notification') {
+				const box = document.createElement('div')
+				box.className = 'notification-box'
+				box.innerHTML = `<strong>${change.title}</strong><br>${change.message}`
+				notifications.prepend(box)
+
+				// trigger animation
+				box.classList.add('show')
+
+				// auto remove after 5 seconds
+				setTimeout(() => {
+					box.classList.remove('show')
+					setTimeout(() => box.remove(), 300)
+				}, 5000)
+			}
 
 			if (change.remove) {
 				const removeClasses = Array.isArray(change.remove) ? change.remove : [change.remove]
@@ -41,6 +86,9 @@ function accept() {
 			if (change.add) {
 				const addClasses = Array.isArray(change.add) ? change.add : [change.add]
 				elements.forEach(el => addClasses.forEach(cls => el.classList.add(cls)))
+				if (change.target === '.cat-text') {
+					fitText()
+				}
 			}
 
 			appliedTimes[change.time] = true
@@ -49,42 +97,21 @@ function accept() {
 }
 
 // glitch effect
-const videoOverlay = document.querySelector('.video-overlay')
-const original = document.querySelector('.glitch-gif')
+const videoOverlay = document.querySelectorAll('.video-overlay')
 
-for (let i = 0; i < 12; i++) {
-	const clone = original.cloneNode(true)
-	const x = Math.random() * window.innerWidth
-	const y = Math.random() * window.innerHeight
+videoOverlay.forEach(el => {
+	const original = el.querySelector('.glitch-gif')
+	for (let i = 0; i < 12; i++) {
+		const clone = original.cloneNode(true)
+		const x = Math.random() * window.innerWidth
+		const y = Math.random() * window.innerHeight
 
-	clone.style.left = `${x}px`
-	clone.style.top = `${y}px`
-	videoOverlay.appendChild(clone)
-}
-
-original.style.display = 'none'
-
-// full-width text
-function fitText() {
-	const fullscreenText = document.querySelectorAll('.fullscreen-text p')
-	fullscreenText.forEach(el => {
-		textFit(el, {
-			alignHoriz: true,
-			alignVert: false,
-			multiLine: false,
-			maxFontSize: 999,
-			widthOnly: true,
-		})
-	})
-}
-
-if (document.fonts) {
-	document.fonts.ready.then(fitText) // Safari waits for fonts
-} else {
-	window.onload = fitText // fallback
-}
-
-window.onresize = fitText
+		clone.style.left = `${x}px`
+		clone.style.top = `${y}px`
+		el.appendChild(clone)
+	}
+	original.style.display = 'none'
+})
 
 // clock
 function updateClock() {
@@ -126,4 +153,18 @@ window.addEventListener('scroll', () => {
 		video.style.left = '50%'
 		video.style.transform = 'translate(-50%, -50%)'
 	}
+})
+
+// cat pictures hover
+const catPictures = Array.from({ length: 20 }, (_, i) => `${i + 1}.jpg`)
+document.querySelectorAll('.cat-pictures').forEach(link => {
+	const image = link.querySelector('img')
+	const caption = link.querySelector('div')
+
+	link.addEventListener('mouseenter', () => {
+		const randomIndex = Math.floor(Math.random() * catPictures.length)
+		const randomFile = catPictures[randomIndex]
+		image.src = `assets/cat-pictures/${randomFile}`
+		caption.textContent = randomFile
+	})
 })
