@@ -142,6 +142,7 @@ fetch('https://ipapi.co/json/')
 
 // change position of video on scroll
 const video = document.getElementById('video')
+const footer = document.querySelector('footer')
 
 window.addEventListener('scroll', () => {
 	if (window.scrollY > 50) {
