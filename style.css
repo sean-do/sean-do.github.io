@@ -171,6 +171,10 @@ a .hover,
 	text-indent: 1.5em;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .textalign-right {
 	text-align: right;
 }

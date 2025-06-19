@@ -12,14 +12,14 @@ const classChanges = [
 		message: 'Back in stock: Modern Cotton Briefs — 25% off until Sunday.',
 	},
 	{
-		time: 85,
+		time: 87,
 		type: 'notification',
 		title: 'Toyota',
 		message:
 			'RECALL ALERT - A safety recall applies to your vehicle. Schedule a service at your nearest dealership.',
 	},
 	{
-		time: 85,
+		time: 88,
 		type: 'notification',
 		title: 'Bupa Dental',
 		message:
@@ -147,6 +147,12 @@ const classChanges = [
 	{ time: 456, target: '.video-overlay-10', add: 'active' },
 	{ time: 458, target: '.video-overlay-10', remove: 'active' },
 
+	{ time: 214, target: '.experiment-text1', add: 'active' },
+	{ time: 215, target: '.experiment-text1', remove: 'active' },
+	{ time: 283, target: '.experiment-text2', add: 'active' },
+	{ time: 284, target: '.experiment-text2', remove: 'active' },
+	{ time: 325, target: '.experiment-text2', add: 'active' },
+	{ time: 326, target: '.experiment-text2', remove: 'active' },
 	{ time: 44, target: '.cat-text', add: 'active' },
 	{ time: 45, target: '.cat-text', remove: 'active' },
 	{ time: 98, target: '.cat-text', add: 'active' },
