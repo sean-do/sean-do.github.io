@@ -62,7 +62,7 @@ button {
 }
 
 .medium-text a:hover,
-.medium-text a:active {
+.medium-text a:focus {
 	background-color: #ed2127;
 }
 
@@ -130,7 +130,7 @@ a .hover img {
 }
 
 a:hover .hover,
-a:active .hover {
+a:focus .hover {
 	display: block;
 }
 
@@ -144,10 +144,12 @@ a .hover,
 
 .fullscreen-text {
 	font-family: Peix;
-	line-height: 0.8;
+	line-height: 0.9;
 	width: 100%;
 	letter-spacing: -6px;
 	text-align: center;
+	font-size: clamp(2.2rem, -0.06rem + 11.3vw, 13.5rem);
+	white-space: nowrap;
 }
 
 .large-text {
@@ -171,6 +173,7 @@ a .hover,
 .small-text {
 	font-family: Jetbrains;
 	font-size: clamp(0.6rem, 0.527rem + 0.36vw, 0.8rem);
+	line-height: 1.2;
 }
 
 .bold {
@@ -237,6 +240,14 @@ a .hover,
 
 .pr {
 	padding-right: clamp(1rem, 0.636rem + 1.82vw, 2rem);
+}
+
+.pb {
+	padding-bottom: clamp(1rem, 0.636rem + 1.82vw, 2rem);
+}
+
+.pt {
+	padding-top: clamp(1rem, 0.636rem + 1.82vw, 2rem);
 }
 
 .padding {

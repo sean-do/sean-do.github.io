@@ -31,15 +31,15 @@ function fitText() {
 	})
 }
 
-// Run once fonts are ready
-if (document.fonts && document.fonts.ready) {
-	document.fonts.ready.then(fitText)
-} else {
-	document.addEventListener('load', fitText)
-}
+// // Run once fonts are ready
+// if (document.fonts && document.fonts.ready) {
+// 	document.fonts.ready.then(fitText)
+// } else {
+// 	document.addEventListener('load', fitText)
+// }
 
-// Re-run on resize
-window.addEventListener('resize', fitText)
+// // Re-run on resize
+// window.addEventListener('resize', fitText)
 
 // accept button
 function accept() {
@@ -86,9 +86,9 @@ function accept() {
 			if (change.add) {
 				const addClasses = Array.isArray(change.add) ? change.add : [change.add]
 				elements.forEach(el => addClasses.forEach(cls => el.classList.add(cls)))
-				if (change.target === '.cat-text') {
-					fitText()
-				}
+				// if (change.target === '.cat-text') {
+				// 	fitText()
+				// }
 			}
 
 			appliedTimes[change.time] = true
