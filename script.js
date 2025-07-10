@@ -4,7 +4,7 @@ function updateWidth() {
 	const video = document.getElementById('video')
 	const notifications = document.querySelectorAll('.notification-stack')
 
-	if (parent && video && notifications) {
+	if (parent && video && notifications && window.innerWidth > 991) {
 		const width = parent.offsetWidth
 		video.style.width = `${width}px`
 		notifications.forEach(notification => {
@@ -144,17 +144,37 @@ fetch('https://ipapi.co/json/')
 const video = document.getElementById('video')
 const footer = document.querySelector('footer')
 
-window.addEventListener('scroll', () => {
-	if (window.scrollY > 50) {
-		// Move it to the right: 2rem from right edge
-		video.style.left = 'calc(100% - 2rem)'
-		video.style.transform = 'translateX(-100%) translateY(-50%)'
-	} else {
-		// Back to center
-		video.style.left = '50%'
-		video.style.transform = 'translate(-50%, -50%)'
-	}
-})
+if (window.innerWidth > 991) {
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 50) {
+			// Move it to the right: 2rem from right edge
+			video.style.left = 'calc(100% - 2rem)'
+			video.style.transform = 'translateX(-100%) translateY(-50%)'
+		} else {
+			// Back to center
+			video.style.left = '50%'
+			video.style.transform = 'translate(-50%, -50%)'
+		}
+	})
+} else {
+	window.addEventListener('scroll', () => {
+		const scrollPosition = window.scrollY + window.innerHeight
+		const documentHeight = document.documentElement.scrollHeight
+		if (window.scrollY > 50) {
+			// Move it to the right: 2rem from right edge
+			video.style.top = 'calc(100% - 1rem)'
+			video.style.transform = 'translateX(-50%) translateY(-100%)'
+		} else {
+			video.style.top = '50%'
+			video.style.transform = 'translate(-50%, -50%)'
+		}
+		if (scrollPosition >= documentHeight) {
+			video.style.opacity = '0'
+		} else {
+			video.style.opacity = '1'
+		}
+	})
+}
 
 // cat pictures hover
 const catPictures = Array.from({ length: 20 }, (_, i) => `${i + 1}.jpg`)

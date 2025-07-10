@@ -13,11 +13,11 @@
 			<section class="overlay fullscreen flex-column space-between bg-yellow padding">
 				<div class="large-text-sans">
 					BY PRESSING YES, I AGREE NOT TO DISCLOSE ANY INFORMATION I WILL READ OR SEE ON THIS PAGE.
+					ALSO, WEAR YOUR HEADPHONES SO NO ONE CAN HEAR YOU.
 				</div>
-				<div class="large-text-sans">ALSO, WEAR YOUR HEADPHONE SO NO ONE CAN HEAR YOU.</div>
-				<div class="flex">
-					<button class="width50 mr large-text" onclick="accept()">Yes</button>
-					<button class="width50 large-text" onclick="accept()">Yes</button>
+				<div id="buttons" class="flex flex-gap">
+					<button class="width50 large-text flex center" onclick="accept()">Yes</button>
+					<button class="width50 large-text flex center" onclick="accept()">Yes</button>
 				</div>
 			</section>
 			<section id="title" class="fullscreen flex-column center pl pr">
@@ -212,7 +212,7 @@
 							<div>004</div>
 							<div class="absolute-center">RESULTS</div>
 						</div>
-						<div class="indent">
+						<div>
 							My interventions were meaningless. I resolved to stop. I’d stick to algorithms, mind
 							my own business. People could drive themselves off metaphorical cliffs. Not my
 							problem.
@@ -251,7 +251,11 @@
 							<div id="location"></div>
 							<div id="clock"></div>
 						</div>
-						<video id="video" loop>
+						<video
+							id="video"
+							loop
+							onclick="this.paused ? this.play() : this.pause(); arguments[0].preventDefault();"
+						>
 							<source src="assets/video.mp4" type="video/mp4" />
 						</video>
 						<div class="flex-column nav">
