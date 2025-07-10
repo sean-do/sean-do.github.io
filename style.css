@@ -101,6 +101,10 @@ button:visited {
 	color: black;
 }
 
+button {
+	color: black;
+}
+
 a.cat-pictures .hover {
 	display: none;
 	position: absolute;
