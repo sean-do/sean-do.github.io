@@ -14,11 +14,16 @@
 	src: url(fonts/JetBrainsMono-Variable.woff2) format('woff2-variations');
 }
 
+html {
+	height: -webkit-fill-available;
+}
+
 body {
 	background-color: #fff30f;
 	font-family: Switzer;
 	margin: 0;
 	overflow: hidden;
+	min-height: -webkit-fill-available;
 }
 
 main {
