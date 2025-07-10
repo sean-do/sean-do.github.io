@@ -97,6 +97,10 @@ button:hover {
 	background-color: #ed2127;
 }
 
+button:visited {
+	color: black;
+}
+
 a.cat-pictures .hover {
 	display: none;
 	position: absolute;
