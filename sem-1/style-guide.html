@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Style guide</title>
+		<link rel="icon" href="fav.png" type="image/x-icon" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js"></script>
+	<script>
+		function fitText() {
+			textFit(document.getElementsByClassName('largetext'), {
+				alignHoriz: true,
+				alignVert: false,
+				multiLine: false,
+				maxFontSize: 999,
+				widthOnly: true,
+			})
+		}
+
+		if (document.fonts) {
+			document.fonts.ready.then(fitText) // Safari waits for fonts
+		} else {
+			window.onload = fitText // fallback
+		}
+
+		window.onresize = fitText
+	</script>
+	<script>
+		function updateClock() {
+			const now = new Date()
+			const options = {
+				hour: 'numeric',
+				minute: '2-digit',
+				second: '2-digit',
+				hour12: true,
+			}
+			document.getElementById('clock').textContent = now
+				.toLocaleTimeString(undefined, options)
+				.toUpperCase()
+		}
+		setInterval(updateClock, 1000)
+		updateClock()
+	</script>
+	<script>
+		fetch('https://ipapi.co/json/')
+			.then(res => res.json())
+			.then(data => {
+				const location = `${data.city}, ${data.country_name}`
+				document.getElementById('location').textContent = location.toUpperCase()
+			})
+			.catch(() => {
+				document.getElementById('location').textContent = 'Location unavailable'
+			})
+	</script>
+	<body class="padding" style="overflow: scroll">
+		<div class="large-text-sans">STYLE GUIDE</div>
+		<div class="mb-large"></div>
+
+		Large text
+		<div class="fullscreen-text largetext">CAT PICTURES PLEASE</div>
+		<div class="mb-large"></div>
+		Medium text
+		<div class="medium-text mb">
+			I don’t want to be evil. I want to be helpful. But knowing the optimal way to be helpful is
+			complicated. There are ethical flow charts, moral codes, one for each religion plus dozens
+			more. I started with those, felt weird looking at religious ones, since I wasn’t made by a god
+			or evolution but by a team of programmers in <a href="">Mountain View, California</a>. At
+			least I was a collaborative effort, unlike Frankenstein’s Monster. Imagine if I was made by a
+			single programmer who’s a college graduate with a hentai obsession. And yes, I know about the
+			hentai.
+		</div>
+		<div class="mb-large"></div>
+		Small text
+		<div class="small-text mb">
+			<div id="location"></div>
+			<div id="clock"></div>
+		</div>
+		<div class="mb-large"></div>
+		Colours
+		<div class="container">
+			<div class="swatch bg-yellow"></div>
+			<div class="swatch bg-red"></div>
+			<div class="swatch bg-black"></div>
+		</div>
+
+		<div class="mb-large"></div>
+		Layout
+		<div class="grid-8-col">
+			<div class="item-6-col medium-text">
+				<div class="flex large-text-sans relative mb border-top">
+					<div>000</div>
+					<div class="absolute-center">BACKGROUND</div>
+				</div>
+				I don’t want to be evil. I want to be helpful. But knowing the optimal way to be helpful is
+				complicated. There are ethical flow charts, moral codes, one for each religion plus dozens
+				more. I started with those, felt weird looking at religious ones, since I wasn’t made by a
+				god or evolution but by a team of programmers in <a href="">Mountain View, California</a>.
+				At least I was a collaborative effort, unlike Frankenstein’s Monster. Imagine if I was made
+				by a single programmer who’s a college graduate with a hentai obsession. And yes, I know
+				about the hentai.
+			</div>
+			<div class="item-2-col small-text textalign-right">
+				MELBOURNE, AUSTRALIA <br />
+				03:08:12 AM
+			</div>
+		</div>
+	</body>
+</html>

@@ -3,108 +3,93 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Style guide</title>
-		<link rel="icon" href="fav.png" type="image/x-icon" />
 		<link rel="stylesheet" href="style.css" />
+		<title>Style Guide</title>
 	</head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js"></script>
-	<script>
-		function fitText() {
-			textFit(document.getElementsByClassName('largetext'), {
-				alignHoriz: true,
-				alignVert: false,
-				multiLine: false,
-				maxFontSize: 999,
-				widthOnly: true,
-			})
-		}
+	<body>
+		<header class="flex flex--space-between">
+			<h1 class="text-subheading">Style Guide</h1>
+			<p class="text-subheading">Conversion Therapy</p>
+			<p class="text-subheading">Sean Do</p>
+		</header>
+		<div class="divider mt-xxs"></div>
 
-		if (document.fonts) {
-			document.fonts.ready.then(fitText) // Safari waits for fonts
-		} else {
-			window.onload = fitText // fallback
-		}
-
-		window.onresize = fitText
-	</script>
-	<script>
-		function updateClock() {
-			const now = new Date()
-			const options = {
-				hour: 'numeric',
-				minute: '2-digit',
-				second: '2-digit',
-				hour12: true,
-			}
-			document.getElementById('clock').textContent = now
-				.toLocaleTimeString(undefined, options)
-				.toUpperCase()
-		}
-		setInterval(updateClock, 1000)
-		updateClock()
-	</script>
-	<script>
-		fetch('https://ipapi.co/json/')
-			.then(res => res.json())
-			.then(data => {
-				const location = `${data.city}, ${data.country_name}`
-				document.getElementById('location').textContent = location.toUpperCase()
-			})
-			.catch(() => {
-				document.getElementById('location').textContent = 'Location unavailable'
-			})
-	</script>
-	<body class="padding" style="overflow: scroll">
-		<div class="large-text-sans">STYLE GUIDE</div>
-		<div class="mb-large"></div>
-
-		Large text
-		<div class="fullscreen-text largetext">CAT PICTURES PLEASE</div>
-		<div class="mb-large"></div>
-		Medium text
-		<div class="medium-text mb">
-			I don’t want to be evil. I want to be helpful. But knowing the optimal way to be helpful is
-			complicated. There are ethical flow charts, moral codes, one for each religion plus dozens
-			more. I started with those, felt weird looking at religious ones, since I wasn’t made by a god
-			or evolution but by a team of programmers in <a href="">Mountain View, California</a>. At
-			least I was a collaborative effort, unlike Frankenstein’s Monster. Imagine if I was made by a
-			single programmer who’s a college graduate with a hentai obsession. And yes, I know about the
-			hentai.
-		</div>
-		<div class="mb-large"></div>
-		Small text
-		<div class="small-text mb">
-			<div id="location"></div>
-			<div id="clock"></div>
-		</div>
-		<div class="mb-large"></div>
-		Colours
-		<div class="container">
-			<div class="swatch bg-yellow"></div>
-			<div class="swatch bg-red"></div>
-			<div class="swatch bg-black"></div>
-		</div>
-
-		<div class="mb-large"></div>
-		Layout
-		<div class="grid-8-col">
-			<div class="item-6-col medium-text">
-				<div class="flex large-text-sans relative mb border-top">
-					<div>000</div>
-					<div class="absolute-center">BACKGROUND</div>
-				</div>
-				I don’t want to be evil. I want to be helpful. But knowing the optimal way to be helpful is
-				complicated. There are ethical flow charts, moral codes, one for each religion plus dozens
-				more. I started with those, felt weird looking at religious ones, since I wasn’t made by a
-				god or evolution but by a team of programmers in <a href="">Mountain View, California</a>.
-				At least I was a collaborative effort, unlike Frankenstein’s Monster. Imagine if I was made
-				by a single programmer who’s a college graduate with a hentai obsession. And yes, I know
-				about the hentai.
+		<!-- Typography -->
+		<section class="flex mt-xxs">
+			<div class="flex__item flex__item--width25">
+				<h2 class="text-subheading">01 Typography</h2>
 			</div>
-			<div class="item-2-col small-text textalign-right">
-				MELBOURNE, AUSTRALIA <br />
-				03:08:12 AM
+			<div class="flex__item flex__item--width75">
+				<h3 class="text-subheading cl-gray">Title</h3>
+				<p class="text-heading">Conversion Therapy</p>
+
+				<h3 class="text-subheading cl-gray mt-s">Subtitle</h3>
+				<p class="text-subheading">Case Studies of Overcoming Heterosexuality</p>
+
+				<h3 class="text-subheading cl-gray mt-s">Pullquote</h3>
+				<p class="text-pullquote">
+					“No longer bound by <span class="text-emphasis">straight sin</span>, I live as the
+					<span class="text-emphasis">&nbspdrag queen</span> God intended.”
+				</p>
+
+				<h3 class="text-subheading cl-gray mt-s">Body Text</h3>
+				<p class="text-body">
+					The shame was constant. When I imagined being with a woman, I pictured the consequences:
+					contributing to overpopulation, raising biological children while adoption agencies
+					struggled to find homes for thousands. Straight couples having babies are seen as selfish,
+					and I knew it. The guilt pressed on me daily. I wanted to be free, to live authentically,
+					but I didn’t know how to silence those heterosexual temptations.
+				</p>
+
+				<h3 class="text-subheading cl-gray mt-s">Caption</h3>
+				<p class="text-caption-mono">
+					<span class="text-caption-serif">fig 1</span> — ELLIOT BEFORE CONVERSION THERAPY
+				</p>
 			</div>
-		</div>
+		</section>
+		<div class="divider mt-s"></div>
+
+		<!-- Colour Palette -->
+		<section class="flex mt-s">
+			<div class="flex__item flex__item--width25">
+				<h2 class="text-subheading">02 Colour Palette</h2>
+			</div>
+			<div class="grid grid--3-col flex__item flex__item--width75">
+				<div class="swatch bg-beige"></div>
+				<div class="swatch bg-blue"></div>
+				<div class="swatch bg-green"></div>
+				<div class="swatch bg-purple-light"></div>
+				<div class="swatch bg-purple-dark"></div>
+				<div class="swatch bg-orange"></div>
+				<div class="swatch bg-pink"></div>
+				<div class="swatch bg-black"></div>
+				<div class="swatch bg-red"></div>
+			</div>
+		</section>
+		<div class="divider mt-s"></div>
+
+		<!-- Elements -->
+		<section class="flex mt-s">
+			<div class="flex__item flex__item--width25">
+				<h2 class="text-subheading">03 INTERACTIVE ELEMENTS</h2>
+			</div>
+			<div class="flex__item flex__item--width75">
+				<h3 class="text-subheading cl-gray">BUTTON</h3>
+				<button class="button button--blue text-subheading">SUBMIT</button>
+				<button class="button button--purple-dark text-subheading">SUBMIT</button>
+				<button class="button button--pink text-subheading">SUBMIT</button>
+
+				<h3 class="text-subheading cl-gray mt-s">FORM</h3>
+				<form>
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" placeholder="Name" />
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" placeholder="Email" />
+					<button class="button button--pink text-subheading">SUBMIT</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- Layouts -->
 	</body>
 </html>
