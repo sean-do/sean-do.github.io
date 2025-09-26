@@ -34,6 +34,7 @@ canvas,
 svg {
 	display: block;
 	max-width: 100%;
+	height: auto;
 }
 
 /* 7. Inherit fonts for form controls */
@@ -76,3 +77,19 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+
+/* 
+  11. Reset list styling
+*/
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* 
+  12. all sections to be at least 100vh  
+*/
+/* section {
+	min-height: 100svh;
+} */

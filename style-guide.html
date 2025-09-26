@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="style.css" />
 		<title>Style Guide</title>
 	</head>
-	<body>
+	<body class="p-s">
 		<header class="flex flex--space-between">
 			<h1 class="text-subheading">Style Guide</h1>
 			<p class="text-subheading">Conversion Therapy</p>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="flex__item flex__item--width75">
 				<h3 class="text-subheading cl-gray">Title</h3>
-				<p class="text-heading">Conversion Therapy</p>
+				<p class="text-heading mt-xxs">Conversion Therapy</p>
 
 				<h3 class="text-subheading cl-gray mt-s">Subtitle</h3>
 				<p class="text-subheading">Case Studies of Overcoming Heterosexuality</p>
@@ -33,7 +33,7 @@
 				</p>
 
 				<h3 class="text-subheading cl-gray mt-s">Body Text</h3>
-				<p class="text-body">
+				<p>
 					The shame was constant. When I imagined being with a woman, I pictured the consequences:
 					contributing to overpopulation, raising biological children while adoption agencies
 					struggled to find homes for thousands. Straight couples having babies are seen as selfish,
@@ -54,7 +54,7 @@
 			<div class="flex__item flex__item--width25">
 				<h2 class="text-subheading">02 Colour Palette</h2>
 			</div>
-			<div class="grid grid--3-col flex__item flex__item--width75">
+			<div class="grid grid--3-col grid--gap-xxs flex__item flex__item--width75">
 				<div class="swatch bg-beige"></div>
 				<div class="swatch bg-blue"></div>
 				<div class="swatch bg-green"></div>
@@ -73,6 +73,7 @@
 			<div class="flex__item flex__item--width25">
 				<h2 class="text-subheading">03 INTERACTIVE ELEMENTS</h2>
 			</div>
+
 			<div class="flex__item flex__item--width75">
 				<h3 class="text-subheading cl-gray">BUTTON</h3>
 				<button class="button button--blue text-subheading">SUBMIT</button>
@@ -80,13 +81,28 @@
 				<button class="button button--pink text-subheading">SUBMIT</button>
 
 				<h3 class="text-subheading cl-gray mt-s">FORM</h3>
-				<form>
+				<form class="mt-xxs">
 					<label for="name">Name</label>
 					<input type="text" name="name" id="name" placeholder="Name" />
 					<label for="email">Email</label>
 					<input type="email" name="email" id="email" placeholder="Email" />
 					<button class="button button--pink text-subheading">SUBMIT</button>
 				</form>
+
+				<h3 class="text-subheading cl-gray mt-s">LINKS</h3>
+				<a class="link-blue" href="">This is a link</a> <br />
+				<a class="link-purple" href="">This is a link</a><br />
+				<a class="link-pink" href="">This is a link</a>
+
+				<h3 class="text-subheading cl-gray mt-s">IMAGES</h3>
+				<div class="image-container image-container--hover image-container--orange">
+					<img src="assets/images/lesbian-3-2.jpg" alt="lesbian couple close up shot" />
+					<figcaption
+						class="image-container__caption image-container__caption--hover text-caption-mono"
+					>
+						<span class="text-caption-serif">fig 1</span> — LUCY AND HER GIRLFRIEND, BELLA
+					</figcaption>
+				</div>
 			</div>
 		</section>
 

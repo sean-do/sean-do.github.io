@@ -1,33 +1,33 @@
 @font-face {
 	font-family: 'Mencken';
-	src: url('fonts/MenckenStdHeadCompress-ExtraBold.otf');
+	src: url('fonts/MenckenStdHeadCompress-ExtraBold.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Nautica';
-	src: url('fonts/Nautica-Medium.otf');
+	src: url('fonts/nautica-medium.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-VariableFont_wght.ttf');
+	src: url('fonts/STIXTwoText-VariableFont_wght.woff') format('woff');
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Italic-VariableFont_wght.ttf');
+	src: url('fonts/STIXTwoText-Italic-VariableFont_wght.woff') format('woff');
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Fragment Mono';
-	src: url('fonts/FragmentMono-Regular.ttf');
+	src: url('fonts/FragmentMono-Regular.woff') format('woff');
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Fragment Mono';
-	src: url('fonts/FragmentMono-Italic.ttf');
+	src: url('fonts/FragmentMono-Italic.woff') format('woff');
 	font-style: italic;
 }
