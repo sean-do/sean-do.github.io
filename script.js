@@ -1,6 +1,5 @@
 const navigate = link => {
 	window.location.href = link
-	console.log(link)
 }
 
 const handleMouseOver = e => {
@@ -21,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const magnifyingMask = document.querySelector('.magnifying-container__mask')
 	const magnifyingBorder = document.querySelector('.magnifying-container__border')
 	const body = document.querySelector('body')
-	const form = document.querySelector('form')
+	const forms = document.querySelectorAll('form')
+	const buttons = document.querySelectorAll('button')
 	if (window.scrollY === 0 && body.classList.contains('no-scroll')) {
 		document.documentElement.classList.add('no-scroll')
 	}
@@ -45,8 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			magnifyingContainer.style.cursor = 'default'
 		}, 1000)
 	})
-	form.addEventListener('submit', e => {
-		e.preventDefault()
-		window.location.href = 'truth.html'
-	})
+	// for (const button of buttons) {
+	// 	button.addEventListener('onclick', e => {
+	// 		e.preventDefault()
+	// 		window.location.href = 'truth.html'
+	// 	})
+	// }
 })
