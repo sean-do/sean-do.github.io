@@ -52,7 +52,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+em {
 	font-weight: normal;
 	overflow-wrap: break-word;
 }
@@ -88,8 +89,36 @@ ul {
 }
 
 /* 
-  12. all sections to be at least 100vh  
+   12. Text vertical trim
 */
-/* section {
-	min-height: 100svh;
-} */
+
+.text-heading,
+.text-heading-small {
+	display: inline-block;
+}
+
+.text-heading::before,
+.text-heading-small::before {
+	content: '';
+	display: table;
+	margin-bottom: calc(-0.5lh + 0.24em);
+}
+.text-heading::after,
+.text-heading-small::after {
+	content: '';
+	display: table;
+	margin-bottom: calc(-0.5lh + 0.46em);
+}
+em {
+	display: inline-block;
+}
+em::before {
+	content: '';
+	display: table;
+	margin-bottom: calc(-0.5lh + 0.06em);
+}
+em::after {
+	content: '';
+	display: table;
+	margin-bottom: calc(-0.5lh + 0.31em);
+}

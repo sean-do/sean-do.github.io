@@ -1,12 +1,16 @@
+@import url(https://use.typekit.net/hxu5tmq.css);
+
 @font-face {
 	font-family: 'Mencken';
 	src: url('fonts/MenckenStdHeadCompress-ExtraBold.woff') format('woff');
 }
 
+/* 
 @font-face {
 	font-family: 'Nautica';
 	src: url('fonts/nautica-medium.woff') format('woff');
-}
+	font-feature-settings: 'calt' 0;
+} */
 
 @font-face {
 	font-family: 'STIX Two Text';

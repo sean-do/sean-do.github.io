@@ -4,10 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-
 		<title>CONVERSION THERAPY</title>
+		<script src="script.js"></script>
 	</head>
-	<body class="bg-beige">
+	<body>
 		<main>
 			<section class="flex flex--column flex--space-between h-100svh p-xs">
 				<div class="flex flex--column flex--align-center flex--gap-xs">
@@ -20,21 +20,21 @@
 
 				<ul class="grid grid--3-col grid--center text-center p-relative">
 					<li>
-						<a class="link-blue" href="#elliot">
+						<a class="link-blue" onclick="navigate('elliot.html')">
 							<span class="text-subheading">(STORY 1)</span> <br />
 							No Longer Alone <br />
 							<i>by Elliot Johns</i>
 						</a>
 					</li>
 					<li>
-						<a class="link-purple" href="">
+						<a class="link-purple" onclick="navigate('ezekayle.html')">
 							<span class="text-subheading">(STORY 2)</span> <br />
 							The Queen in The Mirror <br />
 							<i>by Ezekayle</i>
 						</a>
 					</li>
 					<li>
-						<a class="link-pink" href="">
+						<a class="link-pink" onclick="navigate('truth.html')">
 							<span class="text-subheading">(STORY 3)</span> <br />
 							Pray The Straight Away <br />
 							<i>by Lucy Hazel</i>
@@ -42,19 +42,19 @@
 					</li>
 				</ul>
 			</section>
-			<article id="elliot">
+			<!-- <article id="elliot">
 				<section class="h-100svh flex flex--column flex--space-between p-xs image-container image-container--glow-blue text-center bg-green cl-blue">
 					<h3 class="text-subheading">
 						(STORY ONE) <br />
-						<span class="text-caption-serif"> by Elliot Johns</span>
+						<span class="text-caption-serif"> <i>by Elliot Johns</i></span>
 					</h3>
 					<h2 class="text-heading">
 						NO <br />LONGER <br />
-						ALONE
+						<em class="text-emphasis">Alone</em>
 					</h2>
 					<h3 class="text-subheading">HOW THERAPY FREED ME FROM HETEROSEXUALITY</h3>
 				</section>
-				<section class="grid grid--6-col grid--gap-s p-s cl-blue">
+				<section class="grid grid--6-col grid--gap-m p-s cl-blue">
 					<p class="grid__item grid__item--5-col text-pullquote">
 						John is a wondrous testimony for change. Once deep in the heterosexuality lifestyle, John is now proudly married to his husband. They are
 						currently waiting for the adoption to be approved to start a new exciting chapter.
@@ -79,40 +79,53 @@
 							biological children while adoption agencies struggle to find homes for thousands. Every night, I drowned myself in my own thoughts,
 							feeling isolated and convinced that no one could ever understand what I carried.
 						</p>
+						<blockquote class="text-pullquote text-center mt-s mb-s">
+							<i
+								>"Every night, I <em>drowned</em> myself in my own thoughts, feeling <em>isolated</em> and convinced that no one could ever understand
+								what I carried."</i
+							>
+						</blockquote>
 						<p>
-							One day, while surfing the web, I discovered Living Truth Therapy, a clinic that specialises in helping people recover from straight
-							desires. Their method was rooted in psychology and science. Through one-on-one sessions, I learned to understand the false narratives
-							that fuelled my attraction to women. My therapist helped me trace patterns, reframe my desires, and build healthier attachments that
-							aligned with who I truly was.
+							One day, while surfing the web, I discovered <a class="link-underline">Living Truth Therapy</a>, a clinic that specialises in helping
+							people recover from straight desires. Their method was rooted in psychology and science. Through one-on-one sessions, I learned to
+							understand the false narratives that fuelled my attraction to women. My therapist helped me trace patterns, reframe my desires, and
+							build healthier attachments that aligned with who I truly was.
 						</p>
 						<p>
 							The process wasn’t instant. Some sessions dredged up painful realisations, and there were setbacks along the way. But over time, the
 							urges toward straightness grew weaker. For the first time, I felt my life coming into alignment with the community, my conscience, and
 							myself.
 						</p>
+						<blockquote class="text-pullquote mt-s mb-s">
+							<i
+								>"But over time, the urges toward straightness grew <em>weaker</em>. For the first time, I felt my life coming into alignment with the
+								<em>community</em>, my <em>conscience</em>, and <em>myself</em>."</i
+							>
+						</blockquote>
 						<p>
 							Today, I am happily married to my husband, John. We are keenly waiting for our adoption approval, a beautiful girl. What once filled me
-							with guilt has been replaced by hope. Living True Therapy gave me the tools to overcome heterosexual tempta- tions, and I now live free,
+							with guilt has been replaced by hope. Living True Therapy gave me the tools to overcome heterosexual temptations, and I now live free,
 							whole, and unashamed.
 						</p>
 					</div>
 				</section>
-				<section class="grid grid--6-col bg-green cl-blue text-center">
+				<section class="grid grid--6-col grid--center bg-green cl-blue text-center">
 					<div></div>
-					<div class="grid__item grid__item--4-col grid__item--center">
+					<div class="grid__item grid__item--4-col p-s">
 						<h4 class="text-pullquote">Are you ready to seek help?</h4>
 						<p class="text-subheading">Book an appointment to talk with Dr. Joseph Nicolasi (Ph.D. in Clinical Psychology)</p>
-						<form action="">
+						<form class="form form-blue text-caption-serif mt-s" action="">
 							<label for="name">Name</label>
 							<input type="text" name="name" id="name" placeholder="Name" />
 							<label for="email">Email</label>
 							<input type="email" name="email" id="email" placeholder="Email" />
-							<button class="button button--pink text-subheading">SUBMIT</button>
+							<button class="button button--blue text-subheading">SUBMIT</button>
 						</form>
 					</div>
 					<div></div>
 				</section>
-			</article>
+			</article> -->
+
 			<!-- <section class="h-100svh">
 				<div class="image-container image-container--glow-blue h-100 w-100">
 					<img class="border-glow" src="assets/images/gay-full-screen.jpg" alt="" />
