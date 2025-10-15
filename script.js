@@ -1,14 +1,24 @@
-const base = "{{ site.baseurl | default: '' }}"
-const navigate = page => {
-	// window.location.href = link
-	// const base = window.location.pathname.includes('/pages/') ? '../' : ''
-	// window.location.href = `${base}${page === 'index' ? 'index.html' : 'pages/' + page + '.html'}`
-	// const base = "{{ site.baseurl | default: '' }}"
-	// window.location.href = `${base}/${page}/`
+// const base = "{{ site.baseurl | default: '' }}"
+// const navigate = page => {
+// 	// window.location.href = link
+// 	// const base = window.location.pathname.includes('/pages/') ? '../' : ''
+// 	// window.location.href = `${base}${page === 'index' ? 'index.html' : 'pages/' + page + '.html'}`
+// 	// const base = "{{ site.baseurl | default: '' }}"
+// 	// window.location.href = `${base}/${page}/`
 
-	// Default path logic: goes to /page/ or /repo/page/
-	const target = page === 'index' ? `${base}/` : `${base}/${page}/`
-	window.location.href = target
+// 	// Default path logic: goes to /page/ or /repo/page/
+// 	// const target = page === 'index' ? `${base}/` : `${base}/${page}/`
+// 	// window.location.href = target
+// }
+const navigate = page => {
+	const base = window.BASE || ''
+	console.log(`${base}/${page}`)
+
+	window.location.href = `${base}/${page}`
+}
+
+const scrollToTop = () => {
+	window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 const handleMouseOver = e => {

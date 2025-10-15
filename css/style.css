@@ -377,12 +377,12 @@ blockquote {
 	grid-column-start: 2;
 }
 
-/* footer grid border */
-footer.grid {
+/* colophon grid border */
+#colophon.grid {
 	position: relative;
 }
 
-footer.grid::before {
+#colophon.grid::before {
 	content: '';
 	position: absolute;
 	inset-block: 0;

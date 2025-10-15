@@ -1,0 +1,58 @@
+# -----------------------------
+# Jekyll build output
+# -----------------------------
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
+
+# -----------------------------
+# Ruby/Bundler environment
+# -----------------------------
+Gemfile.lock
+.bundle/
+vendor/bundle/
+
+# -----------------------------
+# System / OS noise
+# -----------------------------
+.DS_Store
+Thumbs.db
+Icon?
+ehthumbs.db
+Desktop.ini
+
+# -----------------------------
+# Logs and temporary files
+# -----------------------------
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.old
+*.orig
+
+# -----------------------------
+# Node/npm artifacts (if you add JS tooling later)
+# -----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# -----------------------------
+# Editor/IDE files
+# -----------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------------
+# Misc. build cache
+# -----------------------------
+.cache/
+coverage/

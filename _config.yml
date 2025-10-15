@@ -1,3 +1,5 @@
-# Optional: a default global permalink pattern (you can override per page)
-# permalink: /:title/
+title: Conversion Therapy
+url: 'https://sean-do.github.io' # or your GitHub Pages user/org URL
+baseurl: ''
 
+permalink: pretty
