@@ -216,6 +216,10 @@ blockquote {
 
 /* TEXT COLOURS */
 
+.cl-black {
+	color: var(--c-black);
+}
+
 .cl-gray {
 	color: var(--c-gray);
 }
@@ -234,6 +238,10 @@ blockquote {
 
 .cl-purple-light {
 	color: var(--c-purple-light);
+}
+
+.cl-pink {
+	color: var(--c-pink);
 }
 
 .cl-red {
@@ -331,6 +339,10 @@ blockquote {
 	align-content: space-between;
 }
 
+.grid--end {
+	align-content: end;
+}
+
 /* grid items span */
 .grid__item--1-col {
 	grid-column: span 1;
@@ -363,6 +375,22 @@ blockquote {
 /* grid items alignment */
 .grid__item--start-2 {
 	grid-column-start: 2;
+}
+
+/* footer grid border */
+footer.grid {
+	position: relative;
+}
+
+footer.grid::before {
+	content: '';
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 50%;
+	transform: translateX(-0.25px);
+	width: 0.5px;
+	background: var(--c-black);
+	pointer-events: none;
 }
 
 /* MARGIN */
@@ -627,13 +655,13 @@ a.link-green:hover {
 }
 
 a.link-purple:hover {
-	color: var(--c-purple-dark);
+	color: var(--c-purple-light);
 	text-shadow: 0 0 5px var(--c-purple-light);
 }
 
 a.link-pink:hover {
 	color: var(--c-pink);
-	text-shadow: 0 0 5px var(--c-orange);
+	text-shadow: 0 0 5px var(--c-pink);
 }
 
 /* FORM */
@@ -727,8 +755,18 @@ input::placeholder {
 	-webkit-backdrop-filter: blur(20px);
 	--mask-radius: 0px;
 	transition: --mask-radius 1s ease-in-out;
-	-webkit-mask-image: radial-gradient(circle var(--mask-radius) at var(--mouse-x) var(--mouse-y), transparent 0%, transparent 98%, black 100%);
-	mask-image: radial-gradient(circle var(--mask-radius) at var(--mouse-x) var(--mouse-y), transparent 0%, transparent 98%, black 100%);
+	-webkit-mask-image: radial-gradient(
+		circle var(--mask-radius) at var(--mouse-x) var(--mouse-y),
+		transparent 0%,
+		transparent 98%,
+		black 100%
+	);
+	mask-image: radial-gradient(
+		circle var(--mask-radius) at var(--mouse-x) var(--mouse-y),
+		transparent 0%,
+		transparent 98%,
+		black 100%
+	);
 }
 
 .magnifying-container.active .magnifying-container__mask {
@@ -787,7 +825,7 @@ input::placeholder {
 	}
 }
 
-/* only use for debugging */
+/* only use for debugging
 .border {
 	border: 1px solid black;
-}
+} */

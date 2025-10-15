@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'Mencken';
-	src: url('fonts/MenckenStdHeadCompress-ExtraBold.woff') format('woff');
+	src: url('../assets/fonts/MenckenStdHeadCompress-ExtraBold.woff') format('woff');
 }
 
 /* 
@@ -14,19 +14,19 @@
 
 @font-face {
 	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-VariableFont_wght.woff') format('woff');
+	src: url('../assets/fonts/STIXTwoText-VariableFont_wght.woff') format('woff');
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Italic-VariableFont_wght.woff') format('woff');
+	src: url('../assets/fonts/STIXTwoText-Italic-VariableFont_wght.woff') format('woff');
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Pantasia';
-	src: url('fonts/Pantasia-Regular.otf');
+	src: url('../assets/fonts/Pantasia-Regular.otf');
 	font-style: normal;
 }
 
