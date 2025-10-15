@@ -89,9 +89,10 @@ body::before {
 }
 
 .text-subheading {
-	font-family: 'Fragment Mono';
+	font-family: 'Pantasia';
+	font-weight: 400;
 	font-size: 1rem;
-	letter-spacing: -0.025em;
+	letter-spacing: -0.05em;
 	/* text-transform: uppercase; */
 }
 
@@ -124,15 +125,21 @@ em {
 } */
 
 .text-caption-mono {
-	font-family: 'Fragment Mono';
+	font-family: 'Pantasia';
 	font-size: 0.875rem;
 	line-height: 1;
+	letter-spacing: -0.05em;
 }
 
+.text-subheading span:not(.text-caption-serif),
+.text-caption-mono span:not(.text-caption-serif) {
+	letter-spacing: -0.15em;
+}
 .text-caption-serif {
 	font-family: 'STIX Two Text';
 	font-size: 1rem;
 	line-height: inherit;
+	letter-spacing: normal;
 	/* font-style: italic; */
 	/* text-transform: none; */
 }

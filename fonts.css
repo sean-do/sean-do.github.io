@@ -25,13 +25,13 @@
 }
 
 @font-face {
-	font-family: 'Fragment Mono';
-	src: url('fonts/FragmentMono-Regular.woff') format('woff');
+	font-family: 'Pantasia';
+	src: url('fonts/Pantasia-Regular.otf');
 	font-style: normal;
 }
 
-@font-face {
+/* @font-face {
 	font-family: 'Fragment Mono';
 	src: url('fonts/FragmentMono-Italic.woff') format('woff');
 	font-style: italic;
-}
+} */
