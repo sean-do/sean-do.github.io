@@ -4,25 +4,51 @@ permalink: /ezekayle
 ---
 
 <article id="ezekayle" class="cl-purple-dark">
-	<section
-		class="h-100svh grid grid--space-between p-xs text-center bg-purple-dark bg-glow cl-purple-light"
-		style="background-image: url('assets/images/ezekayle-min.jpg'); background-size: cover"
-	>
-		<h3 class="grid__item grid__item--full-col text-subheading">
+	<section class="h-100svh grid grid--6-col p-s bg-purple-dark bg-glow cl-purple-light">
+		<!-- <h3 class="grid__item grid__item--full-col text-subheading">
+			(STORY TWO) <br />
+			<span class="text-caption-serif"> <i>by Ezekayle</i></span>
+		</h3> -->
+		<h2 class="grid__item text-heading-small text-glow-l" style="grid-area: 1 / 1 / 2 / 4; z-index: 99">
+			THE <br />
+			<em>Queen</em>
+		</h2>
+		<h3 class="grid__item text-subheading text-left text-glow-s" style="grid-area: 1 / 4 / 2 / 7">
 			(STORY TWO) <br />
 			<span class="text-caption-serif"> <i>by Ezekayle</i></span>
 		</h3>
-		<h2 class="grid__item grid__item--full-col text-heading">THE <em>Queen</em> IN THE MIRROR</h2>
-		<h3 class="grid__item grid__item--full-col text-subheading">HOW GOD’S LOVE HELPED ONE LIVE AUTHENTICALLY</h3>
+		<div class="grid__item grid__item--center" style="grid-area: 1 / 2 / 3 / 6; pointer-events: none">
+			<div class="image-container">
+				<img src="assets/images/ezekayle.jpg" alt="" />
+			</div>
+		</div>
+		<h3 class="grid__item grid__item--end text-subheading text-glow-s" style="grid-area: 2 / 1 / 3 / 4">
+			HOW GOD’S LOVE HELPED <br />
+			ONE LIVE AUTHENTICALLY
+		</h3>
+		<h2
+			class="grid__item grid__item--end text-heading-small text-glow-l text-left"
+			style="grid-area: 2 / 4 / 3 / 7; z-index: 99"
+		>
+			IN THE <br />
+			<em>Mirror</em>
+		</h2>
+		<!-- <h3 class="grid__item grid__item--full-col text-subheading">HOW GOD’S LOVE HELPED ONE LIVE AUTHENTICALLY</h3> -->
 	</section>
 	<div class="running-heading">
-		<p class="text-subheading">CONVERSION THERAPY</p>
+		<a class="text-subheading" onclick="navigate('')">CONVER<span>SI</span>ON THERAPY</a>
 		<p class="text-subheading">
-			<i class="text-caption-serif">story 2 — </i>THE QUEEN IN THE MIRROR
+			<i class="text-caption-serif">story two — </i>THE QUEEN IN THE <span>MI</span>RROR
 			<i class="text-caption-serif">by Ezekayle</i>
 		</p>
 	</div>
 	<section class="grid grid--6-col grid--gap-m p-s">
+		<p class="grid__item grid__item--4-col text-pullquote">
+			Ezekayle’s story is one of divine transformation and deliverance. Once burdened by the temptation of heterosexual
+			desire, she found freedom through faith and the fierce love of House of Queens Ministries. Ezekayle is the living
+			proof that no sin is too strong for God’s forgiveness.
+		</p>
+		<div class="grid__item grid__item--3-col"></div>
 		<div class="grid__item grid__item--3-col text-indent">
 			<div class="image-container image-container--float">
 				<img src="assets/images/ezekayle-before.jpg" alt="" />
@@ -73,10 +99,20 @@ permalink: /ezekayle
 		</div>
 	</section>
 </article>
+<section class="grid grid--6-col bg-purple-light cl-purple-dark text-center">
+	<div class="grid__item grid__item--start-2 grid__item--4-col p-s grid grid--gap-xs grid--center">
+		<h4 class="text-pullquote">Straight, <em>Unhappy</em>?</h4>
+		<p class="text-subheading">We can help you change!</p>
+
+		<button type="button" class="button button--purple-dark text-subheading" onclick="navigate('truth')">
+			CALL 0420 821 693
+		</button>
+	</div>
+</section>
 <nav class="p-nav bg-purple-dark cl-purple-light text-subheading">
 	<ul class="flex flex--space-between">
-		<li><a class="link-purple" onclick="navigate('elliot')">&#8592; STORY ONE</a></li>
-		<li><a class="link-purple" onclick="scrollToTop()">&#8593; BACK TO TOP</a></li>
-		<li><a class="link-purple" onclick="navigate('lucy')">STORY THREE &#8594;</a></li>
+		<li><a onclick="navigate('elliot')">&#8592; STORY ONE</a></li>
+		<li><a onclick="scrollToTop()">&#8593; BACK TO TOP</a></li>
+		<li><a onclick="navigate('lucy')">STORY THREE &#8594;</a></li>
 	</ul>
 </nav>
