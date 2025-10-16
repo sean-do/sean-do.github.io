@@ -64,10 +64,4 @@ document.addEventListener('DOMContentLoaded', () => {
 			magnifyingContainer.style.cursor = 'default'
 		}, 1000)
 	})
-	// for (const button of buttons) {
-	// 	button.addEventListener('onclick', e => {
-	// 		e.preventDefault()
-	// 		window.location.href = 'truth.html'
-	// 	})
-	// }
 })

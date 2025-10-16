@@ -139,7 +139,7 @@ em {
 	font-family: 'STIX Two Text';
 	font-size: 1rem;
 	line-height: inherit;
-	letter-spacing: normal;
+	letter-spacing: -0.02em;
 	/* font-style: italic; */
 	/* text-transform: none; */
 }
@@ -377,18 +377,22 @@ blockquote {
 	grid-column-start: 2;
 }
 
+.grid__item--end {
+	align-self: end;
+}
+
 /* colophon grid border */
-#colophon.grid {
+.colophon.grid {
 	position: relative;
 }
 
-#colophon.grid::before {
+.colophon.grid::before {
 	content: '';
 	position: absolute;
 	inset-block: 0;
 	inset-inline-start: 50%;
-	transform: translateX(-0.25px);
-	width: 0.5px;
+	transform: translateX(-0.5px);
+	width: 1px;
 	background: var(--c-black);
 	pointer-events: none;
 }
@@ -656,12 +660,16 @@ a.link-green:hover {
 
 a.link-purple:hover {
 	color: var(--c-purple-light);
-	text-shadow: 0 0 5px var(--c-purple-light);
+	text-shadow: 0 0 1px var(--c-purple-light);
 }
 
 a.link-pink:hover {
 	color: var(--c-pink);
-	text-shadow: 0 0 5px var(--c-pink);
+	text-shadow: 0 0 1px var(--c-pink);
+}
+
+a.link-black:hover {
+	text-shadow: 0 0 1px var(--c-black);
 }
 
 /* FORM */
@@ -725,6 +733,11 @@ input::placeholder {
 .running-heading.running-heading--dark {
 	background-color: var(--c-black);
 	justify-content: center;
+}
+
+.colophon.running-heading {
+	position: fixed;
+	inset-inline: 0;
 }
 
 .divider {
