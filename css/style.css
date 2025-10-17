@@ -22,6 +22,7 @@
 	--s-m: 3rem;
 	--s-l: 8rem;
 	--s-gap: 20svh;
+	--s-float: 1.375rem;
 
 	/* tilt */
 	--tilt-left: -5deg;
@@ -82,7 +83,7 @@ body::before {
 }
 
 .text-glow-l {
-	text-shadow: 0 0 10px currentColor;
+	text-shadow: 0 0 8px currentColor;
 }
 
 .text-glow-s {
@@ -521,7 +522,7 @@ blockquote {
 	float: left;
 	width: 25%;
 	aspect-ratio: 2/3;
-	margin-right: var(--s-xs);
+	margin-right: var(--s-float);
 	pointer-events: none;
 }
 
