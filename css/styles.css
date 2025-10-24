@@ -36,7 +36,7 @@
 }
 
 html {
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 	overscroll-behavior-y: none;
 }
 
@@ -89,10 +89,6 @@ body::before {
 .text-glow-s {
 	text-shadow: 0 0 2px currentColor;
 }
-
-/* .text-heading:hover {
-	cursor: default;
-} */
 
 .text-heading::selection {
 	background: none;
@@ -156,6 +152,7 @@ em {
 
 .text-center {
 	text-align: center;
+	text-wrap: balance;
 }
 
 .text-left {
@@ -167,7 +164,13 @@ em {
 }
 
 blockquote {
-	padding-left: var(--s-m);
+	/* padding-left: var(--s-m); */
+	margin: var(--s-m) 0;
+}
+
+.image-container--full-bleed blockquote {
+	margin: 0;
+	padding: var(--s-s);
 }
 
 /* BACKGROUND COLOURS */
@@ -201,6 +204,7 @@ blockquote {
 
 .bg-pink {
 	background-color: var(--c-pink);
+	--c-glow: var(--c-orange);
 }
 
 .bg-black {
@@ -260,6 +264,10 @@ blockquote {
 
 .cl-red {
 	color: var(--c-red);
+}
+
+.cl-orange {
+	color: var(--c-orange);
 }
 
 /* FLEX */
@@ -331,6 +339,10 @@ blockquote {
 	gap: var(--s-m);
 }
 
+.grid--gap-l {
+	gap: var(--s-l);
+}
+
 .grid--gap-article {
 	column-gap: var(--s-s);
 	row-gap: var(--s-gap);
@@ -399,6 +411,7 @@ blockquote {
 
 .grid__item--center {
 	align-self: center;
+	justify-self: center;
 }
 
 .grid__item--end {
@@ -474,6 +487,10 @@ blockquote {
 	width: 100%;
 }
 
+.w-50 {
+	width: 50%;
+}
+
 /* HEIGHT */
 
 .h-100svh-mp {
@@ -510,12 +527,18 @@ blockquote {
 	position: relative;
 	border-radius: 2%;
 	/* overflow: hidden; */
-	max-height: 55%;
+	/* max-height: 45%; */
 	cursor: none;
+}
+
+.image-container--inline {
+	width: 75%;
+	margin: auto;
 }
 
 .image-container--2-3 {
 	aspect-ratio: 2/3;
+	width: 40%;
 }
 
 .image-container--float {
@@ -523,6 +546,7 @@ blockquote {
 	width: 25%;
 	aspect-ratio: 2/3;
 	margin-right: var(--s-float);
+	margin-bottom: var(--s-float);
 	pointer-events: none;
 }
 
@@ -533,6 +557,16 @@ blockquote {
 	position: absolute;
 	inset: 0;
 } */
+
+.image-container--full-bleed {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin: calc(var(--s-s) * -1);
+}
+
+.image-container--full-bleed img {
+	pointer-events: none;
+}
 
 .image-container img {
 	width: 100%;
@@ -550,12 +584,13 @@ blockquote {
 	transform: translate(-50%, -100%);
 	background: var(--c-beige);
 	border: 1px solid var(--c-blue);
-	width: 60%;
-	/* width: max(220px, 60%); */
+	/* width: 60%; */
+	width: max(220px, 60%);
 	text-align: center;
 	pointer-events: none;
 	opacity: 0;
 	transition: opacity 150ms;
+	padding: 4px 0;
 	/* overflow: hidden; */
 }
 
@@ -576,6 +611,10 @@ blockquote {
 /* Show caption only when hovering the image */
 .image-container img:hover + .image-container__caption {
 	opacity: 1;
+}
+
+.image-container:has(img:hover) {
+	z-index: 999;
 }
 
 /* .image-container--glow::after {
@@ -843,7 +882,7 @@ input::placeholder {
 	--mask-radius: 100px;
 }
 
-.magnifying-container__mask::before,
+/* .magnifying-container__mask::before,
 .magnifying-container::before,
 section.noise {
 	content: '';
@@ -852,7 +891,7 @@ section.noise {
 	background: url('https://thumbs.dreamstime.com/b/white-noise-background-effect-sound-effect-grain-distress-overlay-texture-your-design-grainy-gradient-background-145456887.jpg');
 	opacity: 0.1;
 	pointer-events: none;
-}
+} */
 
 /* ANIMATION */
 @keyframes fadeIn {

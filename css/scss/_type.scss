@@ -1,0 +1,102 @@
+/* TYPOGRAPHY */
+
+.text-heading {
+	font-family: 'Mencken';
+	font-size: 14rem;
+	/* text-transform: uppercase; */
+	line-height: 0.725;
+}
+
+.text-heading-small {
+	font-family: 'Mencken';
+	font-size: 14rem;
+	line-height: 0.725;
+}
+
+.text-glow-l {
+	text-shadow: 0 0 8px currentColor;
+}
+
+.text-glow-s {
+	text-shadow: 0 0 2px currentColor;
+}
+
+.text-heading::selection {
+	background: none;
+}
+
+.text-subheading {
+	font-family: 'Pantasia';
+	font-weight: 400;
+	font-size: 1rem;
+	letter-spacing: -0.05em;
+	/* text-transform: uppercase; */
+}
+
+em {
+	font-family: 'Nautica';
+	font-size: 1.15em;
+	/* line-height: 0.85em; */
+	font-weight: 800;
+	font-style: normal;
+	padding-left: -0.01em;
+	letter-spacing: normal;
+}
+
+.text-heading em,
+.text-heading-small em {
+	font-size: 100%;
+	line-height: inherit;
+}
+
+.text-pullquote {
+	font-size: 3rem;
+	line-height: 1.025;
+	letter-spacing: -0.025em;
+}
+
+/* .text-body {
+	font-size: 1.5rem;
+	line-height: 1.2;
+	letter-spacing: normal;
+} */
+
+.text-caption-mono {
+	font-family: 'Pantasia';
+	font-size: 0.875rem;
+	line-height: 1;
+	letter-spacing: -0.05em;
+}
+
+.text-subheading span:not(.text-caption-serif),
+.text-caption-mono span:not(.text-caption-serif) {
+	letter-spacing: -0.15em;
+}
+.text-caption-serif {
+	font-family: 'STIX Two Text';
+	font-size: 1rem;
+	line-height: inherit;
+	letter-spacing: -0.02em;
+}
+
+.text-center {
+	text-align: center;
+	text-wrap: balance;
+}
+
+.text-left {
+	text-align: end;
+}
+
+.text-indent p:not(:first-of-type) {
+	text-indent: var(--s-m);
+}
+
+blockquote {
+	margin: var(--s-m) 0;
+}
+
+.image-container--full-bleed blockquote {
+	margin: 0;
+	padding: var(--s-s);
+}

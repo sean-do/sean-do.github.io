@@ -38,30 +38,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	const magnifyingContainer = document.querySelector('.magnifying-container')
 	const magnifyingMask = document.querySelector('.magnifying-container__mask')
 	const magnifyingBorder = document.querySelector('.magnifying-container__border')
+	const images = document.querySelectorAll('.image-container')
 	const body = document.querySelector('body')
-	const forms = document.querySelectorAll('form')
-	const buttons = document.querySelectorAll('button')
+
 	if (window.scrollY === 0 && body.classList.contains('no-scroll')) {
 		document.documentElement.classList.add('no-scroll')
 	}
-	for (const container of document.querySelectorAll('.image-container, .magnifying-container')) {
-		container.addEventListener('mousemove', handleMouseOver)
+	if (images) {
+		for (const image of images) {
+			image.addEventListener('mousemove', handleMouseOver)
+		}
 	}
-	magnifyingContainer.addEventListener('click', () => {
-		const target = magnifyingContainer.offsetHeight + magnifyingContainer.offsetTop
-		magnifyingMask.style.setProperty('--mask-radius', '100vw')
-		magnifyingBorder.style.setProperty('--mask-radius', '100vw')
-		setTimeout(() => {
-			document.documentElement.classList.remove('no-scroll')
-			window.scrollTo({
-				top: target,
-				behavior: 'smooth',
+	if (magnifyingContainer) {
+		magnifyingContainer.addEventListener('mousemove', handleMouseOver)
+		magnifyingContainer.addEventListener('click', () => {
+			const target = magnifyingContainer.offsetHeight + magnifyingContainer.offsetTop
+			magnifyingMask.style.setProperty('--mask-radius', '100vw')
+			magnifyingBorder.style.setProperty('--mask-radius', '100vw')
+			setTimeout(() => {
+				document.documentElement.classList.remove('no-scroll')
+				window.scrollTo({
+					top: target,
+					behavior: 'smooth',
+				})
 			})
+			setTimeout(() => {
+				magnifyingBorder.remove()
+				magnifyingMask.remove()
+				magnifyingContainer.style.cursor = 'default'
+			}, 1000)
 		})
-		setTimeout(() => {
-			magnifyingBorder.remove()
-			magnifyingMask.remove()
-			magnifyingContainer.style.cursor = 'default'
-		}, 1000)
-	})
+	}
 })
