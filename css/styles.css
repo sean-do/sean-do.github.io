@@ -69,14 +69,14 @@ body::before {
 
 /* TYPOGRAPHY */
 
-.text-heading {
+.text-heading--large {
 	font-family: 'Mencken';
 	font-size: 18rem;
 	/* text-transform: uppercase; */
 	line-height: 0.725;
 }
 
-.text-heading-small {
+.text-heading {
 	font-family: 'Mencken';
 	font-size: 14rem;
 	line-height: 0.725;
@@ -90,9 +90,9 @@ body::before {
 	text-shadow: 0 0 2px currentColor;
 }
 
-.text-heading::selection {
+/* .text-heading--large::selection {
 	background: none;
-}
+} */
 
 .text-subheading {
 	font-family: 'Pantasia';
@@ -112,8 +112,8 @@ em {
 	letter-spacing: normal;
 }
 
-.text-heading em,
-.text-heading-small em {
+.text-heading--large em,
+.text-heading em {
 	font-size: 100%;
 	line-height: inherit;
 }

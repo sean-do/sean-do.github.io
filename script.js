@@ -1,15 +1,3 @@
-// const base = "{{ site.baseurl | default: '' }}"
-// const navigate = page => {
-// 	// window.location.href = link
-// 	// const base = window.location.pathname.includes('/pages/') ? '../' : ''
-// 	// window.location.href = `${base}${page === 'index' ? 'index.html' : 'pages/' + page + '.html'}`
-// 	// const base = "{{ site.baseurl | default: '' }}"
-// 	// window.location.href = `${base}/${page}/`
-
-// 	// Default path logic: goes to /page/ or /repo/page/
-// 	// const target = page === 'index' ? `${base}/` : `${base}/${page}/`
-// 	// window.location.href = target
-// }
 const navigate = page => {
 	const base = window.BASE || ''
 	console.log(`${base}/${page}`)
@@ -25,7 +13,7 @@ const handleMouseOver = e => {
 	const target = e.currentTarget
 	const rect = target.getBoundingClientRect()
 	const x = e.clientX - rect.left // distance from container's left
-	const y = e.clientY - rect.top // distance from container's top  ✅
+	const y = e.clientY - rect.top // distance from container's top
 	target.style.setProperty('--mouse-x', `${x}px`)
 	target.style.setProperty('--mouse-y', `${y}px`)
 	if (!target.classList.contains('active')) {
@@ -33,40 +21,81 @@ const handleMouseOver = e => {
 	}
 }
 
+const resizeQuote = quote => {
+	const runningHeading = document.querySelector('.article__running-heading')
+	const svh = window.innerHeight
+	quote.style.setProperty('--min-height', `${svh - runningHeading.offsetHeight}px`)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-	window.scrollTo(0, 0)
 	const magnifyingContainer = document.querySelector('.magnifying-container')
 	const magnifyingMask = document.querySelector('.magnifying-container__mask')
 	const magnifyingBorder = document.querySelector('.magnifying-container__border')
-	const images = document.querySelectorAll('.image-container')
+	const images = document.querySelectorAll('.image-container--hover')
 	const body = document.querySelector('body')
+	const quoteFullBleed = document.querySelector('.article__fullscreen-quote')
 
-	if (window.scrollY === 0 && body.classList.contains('no-scroll')) {
+	if (body.classList.contains('no-scroll')) {
+		window.scrollTo(0, 0)
 		document.documentElement.classList.add('no-scroll')
+		body.style.cursor = 'none'
 	}
+
 	if (images) {
 		for (const image of images) {
 			image.addEventListener('mousemove', handleMouseOver)
 		}
 	}
+	if (quoteFullBleed) {
+		resizeQuote(quoteFullBleed)
+		window.addEventListener('resize', resizeQuote(quoteFullBleed))
+	}
 	if (magnifyingContainer) {
 		magnifyingContainer.addEventListener('mousemove', handleMouseOver)
-		magnifyingContainer.addEventListener('click', () => {
-			const target = magnifyingContainer.offsetHeight + magnifyingContainer.offsetTop
-			magnifyingMask.style.setProperty('--mask-radius', '100vw')
-			magnifyingBorder.style.setProperty('--mask-radius', '100vw')
-			setTimeout(() => {
+		magnifyingContainer.addEventListener(
+			'click',
+			() => {
+				// enlarge mask
+				magnifyingMask.style.setProperty('--mask-radius', '100vw')
+				magnifyingBorder.style.setProperty('--mask-radius', '100vw')
+
+				// scroll to body
+				const runningHeading = document.querySelector('.article__running-heading')
 				document.documentElement.classList.remove('no-scroll')
-				window.scrollTo({
-					top: target,
+				runningHeading.scrollIntoView({
 					behavior: 'smooth',
 				})
-			})
-			setTimeout(() => {
-				magnifyingBorder.remove()
-				magnifyingMask.remove()
-				magnifyingContainer.style.cursor = 'default'
-			}, 1000)
-		})
+
+				// remove mask
+				const metaText = magnifyingContainer.querySelectorAll('.article__meta')
+				setTimeout(() => {
+					magnifyingBorder.remove()
+					magnifyingMask.remove()
+					body.style.cursor = 'default'
+					metaText.forEach(text => {
+						text.style.visibility = 'hidden'
+					})
+				}, 1000)
+				magnifyingBorder.removeEventListener('mousemove', handleMouseOver)
+			},
+			{ once: true }
+		)
 	}
+
+	// SCROLLING BEHAVIOUR
+	document.addEventListener('click', e => {
+		const link = e.target.closest('a[data-href^="#"]')
+		if (!link) return
+
+		const targetSelector = link.dataset.href
+		const target = document.querySelector(targetSelector)
+		if (!target) return
+
+		e.preventDefault()
+
+		target.scrollIntoView({
+			behavior: 'smooth',
+			block: 'end',
+		})
+	})
 })

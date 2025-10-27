@@ -1,0 +1,53 @@
+// COLOURS (ABSOLUTE)
+$c-beige: #f1f7e6;
+$c-blue: #4f49c4;
+$c-purple-light: #cf8cff;
+$c-purple-dark: #3b55b3;
+$c-orange: #ef9d62;
+$c-pink: #941d5f;
+$c-black: #000;
+$c-red: #ed2124;
+$c-gray: #6f6f6f;
+$c-glow: #4f49c4;
+$c-green: #aae6c4;
+
+// FONT SIZES
+$fs-xs: 0.875rem;
+$fs-s: 1rem;
+$fs-m: 1.5rem;
+$fs-l: 3rem;
+$fs-l-quote: 7rem;
+$fs-xl: 14rem;
+$fs-xxl: 16rem;
+
+// LINE HEIGHT
+
+// SPACING
+$s-xxs: 0.5rem;
+$s-xs: 1rem;
+$s-s: 2rem;
+$s-m: 3rem;
+$s-l: 8rem;
+$s-xl: 16rem;
+$s-gap: 20svh;
+$s-float: 1.375rem;
+
+// TILT
+$tilt-positive: 5deg;
+$tilt-negative: -5deg;
+
+:root {
+	// COLOURS (VARIABLES)
+	--c-bg-cover: #{$c-beige};
+	--c-t-cover: #{$c-black};
+	--c-bg-body: #{$c-beige};
+	--c-t-body: #{$c-black};
+
+	--fs-heading: #{$fs-xl};
+	--fs-heading-large: #{$fs-xxl};
+	--fs-quote: #{$fs-l};
+	--fs-quote-large: #{$fs-l-quote};
+	--fs-subheading: #{$fs-s};
+	--fs-body: #{$fs-m};
+	--fs-caption: #{$fs-xs};
+}

@@ -93,19 +93,19 @@ ul {
    12. Text vertical trim
 */
 
-.text-heading,
-.text-heading-small {
+.text-heading--large,
+.text-heading {
 	display: inline-block;
 }
 
-.text-heading::before,
-.text-heading-small::before {
+.text-heading--large::before,
+.text-heading::before {
 	content: '';
 	display: table;
 	margin-bottom: calc(-0.5lh + 0.24em);
 }
-.text-heading::after,
-.text-heading-small::after {
+.text-heading--large::after,
+.text-heading::after {
 	content: '';
 	display: table;
 	margin-bottom: calc(-0.5lh + 0.46em);

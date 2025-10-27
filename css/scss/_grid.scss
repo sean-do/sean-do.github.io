@@ -1,0 +1,136 @@
+@use 'variables' as v;
+
+@mixin grid($col: 1, $gap-row: 0, $gap-column: v.$s-m) {
+	// --grid-col: 1;
+	display: grid;
+	grid-template-columns: repeat($col, minmax(0, 1fr));
+	grid-auto-rows: minmax(0, auto);
+	align-items: start;
+	gap: $gap-row $gap-column;
+}
+
+@mixin grid__item($col-start: 1, $col-end: -1, $row-start: null, $row-end: null, $span: null) {
+	grid-column: #{$col-start} / #{$col-end};
+
+	@if $row-start != null and $row-end != null {
+		grid-row: #{$row-start} / #{$row-end};
+	}
+
+	@if $span != null {
+		grid-column: span #{$span};
+	}
+}
+
+// ALIGNMENTS
+@mixin grid--center {
+	place-items: center;
+}
+
+@mixin place-self($x: start, $y: start) {
+	justify-self: $x;
+	align-self: $y;
+
+	@if $x == start {
+		text-align: left;
+	} @else if $x == center {
+		text-align: center;
+	} @else if $x == end {
+		text-align: right;
+	}
+}
+
+// .grid--gap-xxs {
+// 	gap: var(--s-xxs);
+// }
+// .grid--gap-xs {
+// 	gap: var(--s-xs);
+// }
+
+// .grid--gap-s {
+// 	gap: var(--s-s);
+// }
+
+// .grid--gap-m {
+// 	gap: var(--s-m);
+// }
+
+// .grid--gap-l {
+// 	gap: var(--s-l);
+// }
+
+// .grid--gap-article {
+// 	column-gap: var(--s-s);
+// 	row-gap: var(--s-gap);
+// }
+
+/* grid alignment */
+// .grid--center {
+// 	justify-items: center;
+// 	align-items: center;
+// }
+// .grid--space-between {
+// 	align-content: space-between;
+// }
+
+.grid--end {
+	align-content: end;
+}
+
+/* grid items span */
+.grid__item--1-col {
+	grid-column: span 1;
+}
+
+.grid__item--2-col {
+	grid-column: span 2;
+}
+
+.grid__item--3-col {
+	grid-column: span 3;
+}
+
+.grid__item--4-col {
+	grid-column-end: span 4;
+}
+
+.grid__item--5-col {
+	grid-column: span 5;
+}
+
+.grid__item--full-col {
+	grid-column: 1 / -1;
+}
+
+.grid__item--stack {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+/* grid items alignment */
+.grid__item--start-2 {
+	grid-column-start: 2;
+}
+
+.grid__item--center {
+	align-self: center;
+	justify-self: center;
+}
+
+.grid__item--end {
+	align-self: end;
+}
+
+/* colophon grid border */
+.colophon.grid {
+	position: relative;
+}
+
+.colophon.grid::before {
+	content: '';
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 50%;
+	transform: translateX(-0.5px);
+	width: 1px;
+	background: var(--c-black);
+	pointer-events: none;
+}

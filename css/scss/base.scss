@@ -1,0 +1,23 @@
+@use 'fonts';
+@use 'reset';
+@use 'variables';
+@use 'themes';
+@use 'animations';
+
+@use 'grid';
+@use 'type';
+@use 'components';
+
+@use 'utilities';
+
+html {
+	scroll-behavior: smooth;
+	overscroll-behavior-y: none;
+}
+
+// disable scrolling on truth page
+html.no-scroll,
+html.no-scroll body {
+	overflow-y: hidden;
+	height: 100%;
+}

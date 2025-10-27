@@ -1,31 +1,30 @@
-@import url(https://use.typekit.net/hxu5tmq.css);
+// @import url(https://use.typekit.net/hxu5tmq.css);
 
 @font-face {
 	font-family: 'Mencken';
-	src: url('../assets/fonts/MenckenStdHeadCompress-ExtraBold.woff') format('woff');
+	src: url('../../assets/fonts/MenckenStdHeadCompress-ExtraBold.woff') format('woff');
 }
 
-/* 
 @font-face {
 	font-family: 'Nautica';
-	src: url('fonts/nautica-medium.woff') format('woff');
-	font-feature-settings: 'calt' 0;
-} */
+	src: url('../../assets/fonts/Nautica-Medium.woff2') format('woff2');
+	// font-feature-settings: 'calt' 0;
+}
 
 @font-face {
 	font-family: 'STIX Two Text';
-	src: url('../assets/fonts/STIXTwoText-VariableFont_wght.woff') format('woff');
+	src: url('../../assets/fonts/STIXTwoText-VariableFont_wght.woff') format('woff');
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'STIX Two Text';
-	src: url('../assets/fonts/STIXTwoText-Italic-VariableFont_wght.woff') format('woff');
+	src: url('../../assets/fonts/STIXTwoText-Italic-VariableFont_wght.woff') format('woff');
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Pantasia';
-	src: url('../assets/fonts/Pantasia-Regular.otf');
+	src: url('../../assets/fonts/Pantasia-Regular.otf');
 	font-style: normal;
 }

@@ -1,102 +1,152 @@
-/* TYPOGRAPHY */
+@use 'variables' as v;
+/* TYPE STYLES */
 
-.text-heading {
+body {
+	@extend %text-body;
+	background-color: var(--c-bg-body);
+	color: var(--c-t-body);
+}
+
+%text-heading {
 	font-family: 'Mencken';
-	font-size: 14rem;
-	/* text-transform: uppercase; */
+	font-size: var(--fs-heading);
 	line-height: 0.725;
 }
 
-.text-heading-small {
-	font-family: 'Mencken';
-	font-size: 14rem;
-	line-height: 0.725;
+%text-heading-large {
+	@extend %text-heading;
+	font-size: var(--fs-heading-large);
 }
 
-.text-glow-l {
-	text-shadow: 0 0 8px currentColor;
-}
-
-.text-glow-s {
-	text-shadow: 0 0 2px currentColor;
-}
-
-.text-heading::selection {
-	background: none;
-}
-
-.text-subheading {
+%text-subheading {
 	font-family: 'Pantasia';
 	font-weight: 400;
-	font-size: 1rem;
-	letter-spacing: -0.05em;
-	/* text-transform: uppercase; */
+	font-size: var(--fs-subheading);
+	i {
+		@extend %text-caption-serif;
+	}
 }
 
-em {
-	font-family: 'Nautica';
-	font-size: 1.15em;
-	/* line-height: 0.85em; */
-	font-weight: 800;
-	font-style: normal;
-	padding-left: -0.01em;
-	letter-spacing: normal;
+%text-body {
+	font-family: 'STIX Two Text';
+	font-size: var(--fs-body);
+	line-height: 1.175;
+	letter-spacing: -0.01em;
 }
 
-.text-heading em,
-.text-heading-small em {
-	font-size: 100%;
-	line-height: inherit;
+%text-body-small {
+	@extend %text-body;
+	font-size: var(--fs-subheading);
 }
 
-.text-pullquote {
-	font-size: 3rem;
+%text-pullquote {
+	font-family: 'STIX Two Text';
+	font-size: var(--fs-quote);
 	line-height: 1.025;
 	letter-spacing: -0.025em;
 }
 
-/* .text-body {
-	font-size: 1.5rem;
-	line-height: 1.2;
-	letter-spacing: normal;
-} */
+%text-pullquote-large {
+	font-family: 'STIX Two Text';
+	font-size: var(--fs-quote-large);
+	line-height: 0.95;
+	letter-spacing: -0.06em;
+	font-feature-settings: 'liga' 1;
+}
 
-.text-caption-mono {
+%text-caption-mono {
 	font-family: 'Pantasia';
-	font-size: 0.875rem;
+	font-size: var(--fs-caption);
 	line-height: 1;
-	letter-spacing: -0.05em;
 }
 
-.text-subheading span:not(.text-caption-serif),
-.text-caption-mono span:not(.text-caption-serif) {
-	letter-spacing: -0.15em;
-}
-.text-caption-serif {
+%text-caption-serif {
 	font-family: 'STIX Two Text';
 	font-size: 1rem;
 	line-height: inherit;
 	letter-spacing: -0.02em;
 }
 
-.text-center {
-	text-align: center;
-	text-wrap: balance;
+// DEFAULT
+
+figcaption {
+	@extend %text-caption-mono;
+	i {
+		@extend %text-caption-serif;
+	}
 }
 
-.text-left {
-	text-align: end;
+h1 {
+	// @extend .trim-heading;
+	@extend %text-heading;
 }
 
-.text-indent p:not(:first-of-type) {
-	text-indent: var(--s-m);
+h2,
+h3 {
+	@extend %text-subheading;
 }
 
 blockquote {
-	margin: var(--s-m) 0;
+	@extend %text-pullquote;
+	padding: v.$s-m 0;
+	em {
+		margin-left: 0.03em;
+	}
 }
 
-.image-container--full-bleed blockquote {
-	margin: 0;
-	padding: var(--s-s);
+em {
+	font-family: 'Nautica';
+	font-size: 1.15em;
+	// font-weight: 800;
+	font-style: normal;
+	letter-spacing: normal;
+	height: 0;
+}
+
+// TEXT UTILITIES
+
+@mixin text-indent {
+	p {
+		text-indent: v.$s-l;
+	}
+	p:first-of-type {
+		text-indent: 0;
+	}
+}
+
+.trim-heading {
+	display: inline-block;
+	&:has(em)::after {
+		display: none;
+	}
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		height: 0;
+		pointer-events: none;
+	}
+	&::before {
+		margin-bottom: calc(-0.5lh + 0.24em);
+	}
+	&::after {
+		margin-bottom: calc(-0.5lh + 0.46em);
+	}
+}
+
+.trim-script-descender {
+	display: inline-block;
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		height: 0;
+		pointer-events: none;
+	}
+	&::before {
+		margin-bottom: calc(-0.5lh + 0.37em);
+	}
+	&::after {
+		margin-bottom: calc(-0.5lh + 0.5em);
+	}
 }

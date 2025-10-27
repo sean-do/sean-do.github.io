@@ -1,0 +1,26 @@
+@use 'variables' as v;
+
+html[data-theme='elliot'] {
+	--c-bg-cover: #{v.$c-blue};
+	--c-t-cover: #{v.$c-green};
+	--c-t-body: #{v.$c-blue};
+}
+
+html[data-theme='ezekayle'] {
+	--c-bg-cover: #{v.$c-purple-dark};
+	--c-t-cover: #{v.$c-purple-light};
+	--c-t-body: #{v.$c-purple-dark};
+}
+
+html[data-theme='lucy'] {
+	--c-bg-cover: #{v.$c-pink};
+	--c-t-cover: #{v.$c-orange};
+	--c-t-body: #{v.$c-pink};
+}
+
+html[data-theme='truth'] {
+	--c-bg-cover: #{v.$c-black};
+	--c-t-cover: #{v.$c-red};
+	--c-bg-body: #{v.$c-black};
+	--c-t-body: #{v.$c-red};
+}

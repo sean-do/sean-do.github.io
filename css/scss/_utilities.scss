@@ -1,0 +1,38 @@
+@use 'variables' as v;
+
+@mixin bg-glow {
+	position: relative;
+	overflow: hidden;
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: 99;
+		inset: -1.5em;
+		border: solid 1.25em;
+		border-image: radial-gradient(circle, var(--c-bg-cta)) 1;
+		filter: blur(1em);
+		pointer-events: none;
+	}
+}
+
+@mixin text-glow($scale: small, $colour: currentColor) {
+	$size: 2px;
+
+	@if $scale == small {
+		$size: 1.5px;
+	} @else if $scale == large {
+		$size: 8px;
+	}
+
+	text-shadow: 0 0 $size $colour;
+}
+
+@mixin padding-article {
+	padding: v.$s-s v.$s-s;
+}
+
+@mixin flex-nav {
+	display: flex;
+	justify-content: space-between;
+	padding: v.$s-xxs v.$s-s;
+}

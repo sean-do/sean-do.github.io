@@ -1,0 +1,15 @@
+<nav class="nav-bottom">
+	<ul>
+		<li>
+			<a onclick="navigate('{{ include.prev}}')"> &larr; {{ include.prev_label }} </a>
+		</li>
+
+		<li>
+			<a onclick="scrollToTop()">&uarr; BACK TO TOP</a>
+		</li>
+
+		<li>
+			<a onclick="navigate('{{ include.next}}')"> {{ include.next_label }} &rarr; </a>
+		</li>
+	</ul>
+</nav>

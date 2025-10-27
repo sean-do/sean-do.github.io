@@ -1,0 +1,35 @@
+// for magnifying effect
+@property --mask-radius {
+	syntax: '<length>';
+	inherits: false;
+	initial-value: 0px;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background-color: inherit;
+	pointer-events: none;
+	z-index: 999;
+	animation: page-reveal 600ms ease forwards;
+	animation: 1.5s ease forwards fadeOut;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

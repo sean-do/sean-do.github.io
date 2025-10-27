@@ -93,33 +93,33 @@ ul {
    12. Text vertical trim
 */
 
-.text-heading,
-.text-heading-small {
-	display: inline-block;
-}
+// em {
+// 	display: inline-block;
+// }
+// em::before {
+// 	content: '';
+// 	display: table;
+// 	margin-bottom: calc(-0.5lh + 0.06em);
+// }
+// em::after {
+// 	content: '';
+// 	display: table;
+// 	margin-bottom: calc(-0.5lh + 0.31em);
+// }
 
-.text-heading::before,
-.text-heading-small::before {
-	content: '';
-	display: table;
-	margin-bottom: calc(-0.5lh + 0.24em);
-}
-.text-heading::after,
-.text-heading-small::after {
-	content: '';
-	display: table;
-	margin-bottom: calc(-0.5lh + 0.46em);
-}
 em {
 	display: inline-block;
 }
-em::before {
-	content: '';
-	display: table;
-	margin-bottom: calc(-0.5lh + 0.06em);
-}
+em::before,
 em::after {
 	content: '';
-	display: table;
-	margin-bottom: calc(-0.5lh + 0.31em);
+	display: block;
+	height: 0;
+	pointer-events: none;
+}
+em::before {
+	margin-bottom: calc(-0.5lh + 0.38em);
+}
+em::after {
+	margin-bottom: calc(-0.5lh + 0.36em);
 }
