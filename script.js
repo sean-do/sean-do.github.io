@@ -27,6 +27,38 @@ const resizeQuote = quote => {
 	quote.style.setProperty('--min-height', `${svh - runningHeading.offsetHeight}px`)
 }
 
+const endMagnifyEffect = (container, mask, border) => {
+	// enlarge mask
+	mask.style.setProperty('--mask-radius', '120vw')
+	border.style.setProperty('--mask-radius', '120vw')
+
+	// scroll to body
+	const runningHeading = document.querySelector('.article__running-heading')
+	document.documentElement.classList.remove('no-scroll')
+	document.body.classList.remove('no-scroll')
+	setTimeout(() => {
+		runningHeading.scrollIntoView({
+			behavior: 'smooth',
+		})
+	}, 200)
+
+	// remove mask
+	const metaText = container.querySelectorAll('.article__meta')
+	setTimeout(() => {
+		border.remove()
+		mask.remove()
+		metaText.forEach(text => {
+			text.style.display = 'none'
+		})
+		document.body.style.cursor = 'default'
+	}, 1000)
+	// container.touchAction = 'auto'
+	container.removeEventListener('mousemove', handleMouseOver)
+	container.releasePointerCapture(e.pointerId)
+	// container.removeEventListener('pointerup', handlePointerUp)
+	// container.removeEventListener('pointerdown', handlePointerDown)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	const magnifyingContainer = document.querySelector('.magnifying-container')
 	const magnifyingMask = document.querySelector('.magnifying-container__mask')
@@ -34,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const images = document.querySelectorAll('.image-container--hover')
 	const body = document.querySelector('body')
 	const quoteFullBleed = document.querySelector('.article__fullscreen-quote')
+	const TAP_THRESHOLD = 10
+	let startX = 0
+	let startY = 0
 
 	if (body.classList.contains('no-scroll')) {
 		window.scrollTo(0, 0)
@@ -43,43 +78,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (images) {
 		for (const image of images) {
-			image.addEventListener('mousemove', handleMouseOver)
+			image.addEventListener('pointermove', handleMouseOver)
 		}
 	}
 	if (quoteFullBleed) {
 		resizeQuote(quoteFullBleed)
 		window.addEventListener('resize', resizeQuote(quoteFullBleed))
 	}
+
 	if (magnifyingContainer) {
+		const container = document.querySelector('.magnifying-container')
+
+		function handlePointerDown(e) {
+			// stop scroll behaviour
+			// e.preventDefault()
+			// start listening for move events
+			startX = e.clientX
+			startY = e.clientY
+			container.setPointerCapture(e.pointerId)
+
+			container.addEventListener('pointermove', handleMouseOver)
+		}
+
+		function handlePointerUp(e) {
+			container.releasePointerCapture(e.pointerId)
+			container.removeEventListener('pointermove', handleMouseOver)
+
+			const dx = Math.abs(e.clientX - startX)
+			const dy = Math.abs(e.clientY - startY)
+			const distance = Math.sqrt(dx * dx + dy * dy)
+
+			if (distance < TAP_THRESHOLD) {
+				endMagnifyEffect(magnifyingContainer, magnifyingMask, magnifyingBorder)
+			} else {
+				return
+			}
+		}
+
+		container.addEventListener('pointerdown', handlePointerDown, { passive: false })
+		container.addEventListener('pointerup', handlePointerUp)
+
 		magnifyingContainer.addEventListener('mousemove', handleMouseOver)
-		magnifyingContainer.addEventListener(
-			'click',
-			() => {
-				// enlarge mask
-				magnifyingMask.style.setProperty('--mask-radius', '100vw')
-				magnifyingBorder.style.setProperty('--mask-radius', '100vw')
+		// magnifyingContainer.addEventListener(
+		// 	'click',
+		// 	endMagnifyEffect(magnifyingContainer, magnifyingMask, magnifyingBorder)
+		// )
 
-				// scroll to body
-				const runningHeading = document.querySelector('.article__running-heading')
-				document.documentElement.classList.remove('no-scroll')
-				runningHeading.scrollIntoView({
-					behavior: 'smooth',
-				})
+		// magnifyingContainer.addEventListener(
+		// 	'click',
+		// 	() => {
+		// 		// enlarge mask
+		// 		magnifyingMask.style.setProperty('--mask-radius', '100vw')
+		// 		magnifyingBorder.style.setProperty('--mask-radius', '100vw')
 
-				// remove mask
-				const metaText = magnifyingContainer.querySelectorAll('.article__meta')
-				setTimeout(() => {
-					magnifyingBorder.remove()
-					magnifyingMask.remove()
-					body.style.cursor = 'default'
-					metaText.forEach(text => {
-						text.style.visibility = 'hidden'
-					})
-				}, 1000)
-				magnifyingBorder.removeEventListener('mousemove', handleMouseOver)
-			},
-			{ once: true }
-		)
+		// 		// scroll to body
+		// 		const runningHeading = document.querySelector('.article__running-heading')
+		// 		document.documentElement.classList.remove('no-scroll')
+		// 		runningHeading.scrollIntoView({
+		// 			behavior: 'smooth',
+		// 		})
+
+		// 		// remove mask
+		// 		const metaText = magnifyingContainer.querySelectorAll('.article__meta')
+		// 		setTimeout(() => {
+		// 			magnifyingBorder.remove()
+		// 			magnifyingMask.remove()
+		// 			body.style.cursor = 'default'
+		// 			metaText.forEach(text => {
+		// 				text.style.visibility = 'hidden'
+		// 			})
+		// 		}, 1000)
+		// 		magnifyingBorder.removeEventListener('mousemove', handleMouseOver)
+		// 	},
+		// 	{ once: true }
+		// )
 	}
 
 	// SCROLLING BEHAVIOUR

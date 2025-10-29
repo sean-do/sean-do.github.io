@@ -20,6 +20,7 @@
 	</head>
 	<body class="{{ page.body_class }}">
 		{{ content }}
-		<script src="{{ '/script.js' | relative_url }}" defer></script>
+		<!-- <script src="{{ '/js/main.js' | relative_url }}" defer></script> -->
+		<script type="module" src="/js/main.js"></script>
 	</body>
 </html>

@@ -6,20 +6,22 @@ styles: base.css
 ---
 
 <article class="article">
-	<section class="article__cover article__cover--middle">
-		<h2 class="article__meta article__meta--top">
-			(STORY ONE)<br />
-			<i>by Elliot Johns</i>
-		</h2>
-		<h1 class="article__title">
-			<span class="article__title--top">NO LONGER</span>
-			<span class="article__title--bottom"><em>Alone</em></span>
-		</h1>
-		<div class="article__cover-image image-container">
-			<img src="../assets/images/elliot-cover.jpg" alt="" />
-		</div>
-		<h2 class="article__meta article__meta--bottom">HOW THERAPY FREED ME FROM HETEROSEXUALITY</h2>
-	</section>
+	<div class="cover-wrapper">
+		<section class="article__cover article__cover--middle">
+			<h2 class="article__meta article__meta--top">
+				(STORY ONE)<br />
+				<i>by Elliot Johns</i>
+			</h2>
+			<h1 class="article__title">
+				<span class="article__title--top">NO LONGER</span>
+				<span class="article__title--bottom"><em>Alone</em></span>
+			</h1>
+			<div class="article__cover-image image-container">
+				<img src="../assets/images/elliot-cover.jpg" alt="" />
+			</div>
+			<h2 class="article__meta article__meta--bottom">HOW THERAPY FREED ME FROM HETEROSEXUALITY</h2>
+		</section>
+	</div>
 	<section class="article__running-heading">
 		<a onclick="navigate('')">CONVERSION THERAPY</a>
 		<p>
@@ -67,11 +69,11 @@ styles: base.css
 				>
 			</blockquote>
 			<p>
-				One day, while surfing the web, I discovered <a href="#cta">Living Truth Therapy</a>, a clinic that specialises
-				in helping people recover from straight desires. Their method was rooted in psychology and science. Through
-				one-on-one sessions, I learned to understand the false narratives that fuelled my attraction to women. My
-				therapist helped me trace patterns, reframe my desires, and build healthier attachments that aligned with who I
-				truly was.
+				One day, while surfing the web, I discovered <a data-href="#cta">Living Truth Therapy</a>, a clinic that
+				specialises in helping people recover from straight desires. Their method was rooted in psychology and science.
+				Through one-on-one sessions, I learned to understand the false narratives that fuelled my attraction to women.
+				My therapist helped me trace patterns, reframe my desires, and build healthier attachments that aligned with who
+				I truly was.
 			</p>
 			<p>
 				The process wasn’t instant. Some sessions dredged up painful realisations, and there were setbacks along the
@@ -80,22 +82,23 @@ styles: base.css
 			</p>
 			<blockquote>
 				<i
-					>&ldquo;But over time, the urges toward straightness grew <em>weaker</em>. For the first time, I felt my life
-					coming into alignment with the <em>community</em>, my <em>conscience</em>, and
-					<em>myself</em>.&hairsp;&rdquo;</i
+					>&ldquo;But over time, the urges toward straightness grew <em>weaker</em>&#8204;. For the first time, I felt
+					my life coming into <em>alignment</em> with the community, my conscience,
+					<span class="no-break">and myself.&rdquo;</span></i
 				>
 			</blockquote>
 			<p>
 				Today, I am happily married to my husband, John. We are keenly waiting for our adoption approval, a beautiful
-				girl. What once filled me with guilt has been replaced by hope. <a href="#cta">Living Truth Therapy</a> gave me
-				the tools to overcome heterosexual temptations, and I now live free, whole, and unashamed.
+				girl. What once filled me with guilt has been replaced by hope.
+				<a data-href="#cta">Living Truth Therapy</a> gave me the tools to overcome heterosexual temptations, and I now
+				live free, whole, and unashamed.
 			</p>
 		</div>
 	</section>
 </article>
 <section class="cta" id="cta">
 	<p class="cta__heading">Are you ready to seek help?</p>
-	<p>Book an appointment to talk with Dr. Joseph Nicolasi (Ph.D. in Clinical Psychology)</p>
+	<p class="cta__text">Book an appointment to talk with Dr. Callum Scott (Ph.D. in Clinical Psychology)</p>
 	<form class="form">
 		<label for="name">Name</label>
 		<input name="name" id="name" placeholder="Name" />

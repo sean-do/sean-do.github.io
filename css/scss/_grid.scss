@@ -1,12 +1,19 @@
 @use 'variables' as v;
+@use 'utilities' as u;
+@use 'responsive' as *;
 
-@mixin grid($col: 1, $gap-row: 0, $gap-column: v.$s-m) {
+@mixin grid($col: 1, $gap-row: 0, $gap-column: v.$s-m, $responsive: true) {
 	// --grid-col: 1;
 	display: grid;
 	grid-template-columns: repeat($col, minmax(0, 1fr));
 	grid-auto-rows: minmax(0, auto);
 	align-items: start;
 	gap: $gap-row $gap-column;
+	@if $responsive {
+		@include responsive(m) {
+			@include u.flex(center, stretch, $direction: column);
+		}
+	}
 }
 
 @mixin grid__item($col-start: 1, $col-end: -1, $row-start: null, $row-end: null, $span: null) {
@@ -19,11 +26,17 @@
 	@if $span != null {
 		grid-column: span #{$span};
 	}
+
+	@include responsive(m) {
+		grid-column: 1 / -1;
+		grid-row: span 1;
+	}
 }
 
 // ALIGNMENTS
 @mixin grid--center {
 	place-items: center;
+	text-align: center;
 }
 
 @mixin place-self($x: start, $y: start) {

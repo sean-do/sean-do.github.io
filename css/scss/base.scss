@@ -9,6 +9,7 @@
 @use 'components';
 
 @use 'utilities';
+@use 'responsive';
 
 html {
 	scroll-behavior: smooth;
@@ -16,8 +17,8 @@ html {
 }
 
 // disable scrolling on truth page
-html.no-scroll,
-html.no-scroll body {
+html.no-scroll body,
+html.no-scroll {
 	overflow-y: hidden;
 	height: 100%;
 }

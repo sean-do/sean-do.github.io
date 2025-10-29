@@ -8,7 +8,15 @@
 @font-face {
 	font-family: 'Nautica';
 	src: url('../../assets/fonts/Nautica-Medium.woff2') format('woff2');
-	// font-feature-settings: 'calt' 0;
+	font-weight: normal;
+	font-feature-settings: 'calt' 0;
+}
+
+@font-face {
+	font-family: 'Nautica';
+	src: url('../../assets/fonts/Nautica-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-feature-settings: 'calt' 0;
 }
 
 @font-face {

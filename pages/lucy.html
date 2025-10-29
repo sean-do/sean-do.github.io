@@ -6,20 +6,24 @@ styles: base.css
 ---
 
 <article class="article">
-	<section class="article__cover article__cover--middle">
-		<h2 class="article__meta article__meta--top">
-			(STORY THREE)<br />
-			<i>by Lucy Hazel</i>
-		</h2>
-		<h1 class="article__title">
-			<span class="article__title--top">PRAY THE</span>
-			<span class="article__title--bottom"><em class="trim-script-descender">Straight</em> AWAY</span>
-		</h1>
-		<div class="article__cover-image image-container">
-			<img src="../assets/images/lucy-cover.jpg" alt="" />
-		</div>
-		<h2 class="article__meta article__meta--bottom">ON LETTING GO OF STRAIGHTNESS</h2>
-	</section>
+	<div class="cover-wrapper">
+		<section class="article__cover article__cover--middle">
+			<h2 class="article__meta article__meta--top">
+				(STORY THREE)<br />
+				<i>by Lucy Hazel</i>
+			</h2>
+			<h1 class="article__title">
+				<span class="article__title--top">PRAY THE</span>
+				<span class="article__title--bottom"
+					><em class="trim-script-descender">Straight</em> <span class="trim-heading">AWAY</span></span
+				>
+			</h1>
+			<div class="article__cover-image image-container">
+				<img src="../assets/images/lucy-cover.jpg" alt="" />
+			</div>
+			<h2 class="article__meta article__meta--bottom">ON LETTING GO OF STRAIGHTNESS</h2>
+		</section>
+	</div>
 	<section class="article__running-heading">
 		<a onclick="navigate('')">CONVERSION THERAPY</a>
 		<p>
@@ -99,15 +103,9 @@ styles: base.css
 	</section>
 </article>
 <section id="cta" class="cta">
-	<p class="cta__heading">Are you ready to seek help?</p>
-	<p>Book an appointment to talk with Dr. Joseph Nicolasi (Ph.D. in Clinical Psychology)</p>
-	<form class="form">
-		<label for="name">Name</label>
-		<input name="name" id="name" placeholder="Name" />
-		<label for="email">Email</label>
-		<input name="email" id="email" placeholder="Email" />
-		<button type="button" class="button" onclick="navigate('truth')">SUBMIT</button>
-	</form>
+	<p class="cta__heading">Find Freedom at <i>New Dawn House</i></p>
+	<p class="cta__text">Join women who’ve chosen transformation. Your journey begins here!</p>
+	<button type="button" class="button" onclick="navigate('truth')">DOWNLOAD APPLICATION</button>
 </section>
 
 {% include nav.html prev="ezekayle" prev_label="STORY TWO" next="truth" next_label="?????" %}

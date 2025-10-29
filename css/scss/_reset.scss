@@ -107,19 +107,20 @@ ul {
 // 	margin-bottom: calc(-0.5lh + 0.31em);
 // }
 
-em {
-	display: inline-block;
-}
-em::before,
-em::after {
-	content: '';
-	display: block;
-	height: 0;
-	pointer-events: none;
-}
-em::before {
-	margin-bottom: calc(-0.5lh + 0.38em);
-}
-em::after {
-	margin-bottom: calc(-0.5lh + 0.36em);
-}
+// em {
+// 	display: inline-block;
+// 	white-space: nowrap;
+// }
+// em::before,
+// em::after {
+// 	content: '';
+// 	display: block;
+// 	height: 0;
+// 	pointer-events: none;
+// }
+// em::before {
+// 	margin-bottom: calc(-0.5lh + 0.38em);
+// }
+// em::after {
+// 	margin-bottom: calc(-0.5lh + 0.36em);
+// }

@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'responsive' as *;
 /* TYPE STYLES */
 
 body {
@@ -11,19 +12,25 @@ body {
 	font-family: 'Mencken';
 	font-size: var(--fs-heading);
 	line-height: 0.725;
+	@extend .trim-script;
 }
 
 %text-heading-large {
 	@extend %text-heading;
 	font-size: var(--fs-heading-large);
+	letter-spacing: -0.02em;
+	@extend .trim-script;
 }
 
 %text-subheading {
 	font-family: 'Pantasia';
 	font-weight: 400;
+	letter-spacing: -0.02em;
 	font-size: var(--fs-subheading);
 	i {
-		@extend %text-caption-serif;
+		// @extend %text-caption-serif;
+		font-family: 'STIX Two Text';
+		font-size: var(--fs-subheading);
 	}
 }
 
@@ -37,34 +44,49 @@ body {
 %text-body-small {
 	@extend %text-body;
 	font-size: var(--fs-subheading);
+	@include responsive(m) {
+		font-size: var(--fs-body);
+	}
 }
 
 %text-pullquote {
 	font-family: 'STIX Two Text';
 	font-size: var(--fs-quote);
 	line-height: 1.025;
-	letter-spacing: -0.025em;
+	letter-spacing: -0.03em;
 }
 
 %text-pullquote-large {
 	font-family: 'STIX Two Text';
 	font-size: var(--fs-quote-large);
 	line-height: 0.95;
-	letter-spacing: -0.06em;
+	letter-spacing: -0.05em;
 	font-feature-settings: 'liga' 1;
+}
+
+.text-pullquote-large {
+	@extend %text-pullquote-large;
 }
 
 %text-caption-mono {
 	font-family: 'Pantasia';
 	font-size: var(--fs-caption);
-	line-height: 1;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+
+%text-subscript {
+	@extend %text-caption-mono;
+	font-size: calc(var(--fs-caption) * 0.8);
+	vertical-align: top;
 }
 
 %text-caption-serif {
 	font-family: 'STIX Two Text';
-	font-size: 1rem;
+	font-size: var(--fs-caption);
 	line-height: inherit;
 	letter-spacing: -0.02em;
+	font-feature-settings: 'liga' 1;
 }
 
 // DEFAULT
@@ -91,6 +113,8 @@ blockquote {
 	padding: v.$s-m 0;
 	em {
 		margin-left: 0.03em;
+		font-weight: bold;
+		font-feature-settings: 'liga' 0;
 	}
 }
 
@@ -100,17 +124,32 @@ em {
 	// font-weight: 800;
 	font-style: normal;
 	letter-spacing: normal;
-	height: 0;
+	line-height: 0;
 }
 
 // TEXT UTILITIES
 
-@mixin text-indent {
-	p {
-		text-indent: v.$s-l;
+.no-break {
+	white-space: nowrap;
+}
+
+.trim-script {
+	em {
+		display: inline-block;
+		white-space: nowrap;
 	}
-	p:first-of-type {
-		text-indent: 0;
+	em::before,
+	em::after {
+		content: '';
+		display: block;
+		height: 0;
+		pointer-events: none;
+	}
+	em::before {
+		margin-bottom: calc(-0.5lh + 0.38em);
+	}
+	em::after {
+		margin-bottom: calc(-0.5lh + 0.36em);
 	}
 }
 

@@ -6,23 +6,25 @@ styles: base.css
 ---
 
 <article class="article">
-	<section class="article__cover article__cover--alternate">
-		<h2 class="article__meta article__meta--top">
-			(STORY TWO)<br />
-			<i>by Ezekayle</i>
-		</h2>
-		<h1 class="article__title">
-			<span class="article__title--top">THE <em>Queen</em></span>
-			<span class="article__title--bottom">IN THE <em>Mirror</em></span>
-		</h1>
-		<div class="article__cover-image image-container">
-			<img src="../assets/images/ezekayle-cover.jpg" alt="" />
-		</div>
-		<h2 class="article__meta article__meta--bottom">
-			HOW GOD’S LOVE HELPED <br />
-			ONE LIVE AUTHENTICALLY
-		</h2>
-	</section>
+	<div class="cover-wrapper">
+		<section class="article__cover article__cover--alternate">
+			<h2 class="article__meta article__meta--top">
+				(STORY TWO)<br />
+				<i>by Ezekayle</i>
+			</h2>
+			<h1 class="article__title">
+				<span class="article__title--top">THE <em>Queen</em></span>
+				<span class="article__title--bottom">IN THE <em>Mirror</em></span>
+			</h1>
+			<div class="article__cover-image image-container">
+				<img src="../assets/images/ezekayle-cover.jpg" alt="" />
+			</div>
+			<h2 class="article__meta article__meta--bottom">
+				HOW GOD’S LOVE HELPED <br />
+				ONE LIVE AUTHENTICALLY
+			</h2>
+		</section>
+	</div>
 	<section class="article__running-heading">
 		<a onclick="navigate('')">CONVERSION THERAPY</a>
 		<p>
@@ -60,9 +62,9 @@ styles: base.css
 
 			<blockquote>
 				<i
-					>"I prayed night after night, begging <em>God</em> to take away the feelings, to save me from the
-					<em>sinful</em> thoughts."</i
-				>
+					>&ldquo;I prayed night after night, begging <em>God</em> to take away the feelings, to save me from the
+					<span class="no-break"><em>sinful</em> thoughts.&rdquo;</span>
+				</i>
 			</blockquote>
 			<p>
 				But God eventually decided to intervene when I was 24. A friend invited me to
@@ -77,7 +79,10 @@ styles: base.css
 				toward straightness.
 			</p>
 			<blockquote>
-				<i>"The more I prayed, the more I could sense the presence of <em>God</em>."</i>
+				<i
+					>&ldquo;The more I prayed, the more I could sense the presence
+					<span class="no-break">of <em>God</em>&#8204;.&rdquo;</span></i
+				>
 			</blockquote>
 			<p>
 				Today, I am free, no longer bound by straight sin. I live as the drag queen God intended. If you, too, are
@@ -87,12 +92,14 @@ styles: base.css
 			</p>
 		</div>
 	</section>
-	<section class="article__fullscreen-quote">
-		<div class="image-container"><img src="/assets/images/ezekayle-full-bleed.jpg" alt="" /></div>
+	<section class="article__fullscreen-quote image-container">
+		<!-- <div class="image-container"><img src="/assets/images/ezekayle-full-bleed.jpg" alt="" /></div> -->
+		<img src="/assets/images/ezekayle-full-bleed.jpg" alt="" />
+
 		<blockquote>
 			<i
 				>"Today, I am free, no longer bound by <em>straight</em> sin. I live as the drag queen
-				<em>God</em> intended."</i
+				<span class="no-break"><em>God</em> intended."</span></i
 			>
 		</blockquote>
 	</section>
@@ -100,7 +107,7 @@ styles: base.css
 
 <section class="cta" id="cta">
 	<p class="cta__heading">Straight, <em>Unhappy</em>?</p>
-	<p>We can help you change!</p>
+	<p class="cta__text">We can help you change!</p>
 	<button type="button" class="button" onclick="navigate('truth')">CALL 0420 821 693</button>
 </section>
 

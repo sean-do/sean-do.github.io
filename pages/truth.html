@@ -7,17 +7,21 @@ styles: base.css
 ---
 
 <article class="article">
-	<section class="magnifying-container article__cover">
-		<h1 class="article__title">
-			<span class="article__title--top">THE <em>Truth</em> OF</span>
-			<span class="article__title--middle">CONVERSION</span>
-			<span class="article__title--bottom">THERAPY</span>
-		</h1>
-		<h2 class="article__meta article__meta--top">Click anywhere to reveal</h2>
-		<h2 class="article__meta article__meta--bottom">Click anywhere to reveal</h2>
-		<div class="magnifying-container__mask"></div>
-		<div class="magnifying-container__border"></div>
-	</section>
+	<div class="cover-wrapper">
+		<section class="magnifying-container article__cover">
+			<h1 class="article__title">
+				<span class="article__title--top"
+					><span class="no-break">THE <em>Truth</em></span> <span class="trim-heading">OF</span></span
+				>
+				<span class="article__title--middle">CONVERSION</span>
+				<span class="article__title--bottom">THERAPY</span>
+			</h1>
+			<h2 class="article__meta article__meta--top">Click anywhere to reveal</h2>
+			<h2 class="article__meta article__meta--bottom">Click anywhere to reveal</h2>
+			<div class="magnifying-container__mask"></div>
+			<div class="magnifying-container__border"></div>
+		</section>
+	</div>
 	<div class="article__running-heading">
 		<p>THE TRUTH OF CONVER<span>SI</span>ON THERAPY</p>
 	</div>
@@ -41,10 +45,12 @@ styles: base.css
 				Instead of resolving internal conflicts, conversion therapy often intensifies feelings of shame, guilt, and
 				self-hatred by invalidating core aspects of the individual’s identity. Symptoms of post-traumatic stress
 				disorder (PTSD) are also prevalently demonstrated, including intrusive memories of therapy sessions, emotional
-				numbing, and hypervigilance.<a class="citation">2</a> The American Psychiatric Association<a class="citation"
+				numbing, and hypervigilance.<a class="citation" data-href="#fn2">2</a> The American Psychiatric Association<a
+					class="citation"
+					data-href="#fn3"
 					>3</a
 				>
-				and World Health Organization<a class="citation">4</a>
+				and World Health Organization<a class="citation" data-href="#fn4">4</a>
 				strongly condemn conversion therapy due to its documented psychological harms and lack of efficacy.
 			</p>
 			<h3>(SOCIAL HARM)</h3>
@@ -54,18 +60,20 @@ styles: base.css
 				participation by their family members or guardians are particularly vulnerable, as they lack agency over their
 				own decisions. These situations can often deepen familial conflict and aggravate the sense of alienation.<a
 					class="citation"
+					data-href="#fn5"
 					>5</a
 				>
 				Survivors can also lose faith in authority figures, including counsellors, religious leaders, and educators, who
 				may have endorsed or facilitated the therapy, thereby further reducing access to supportive social and mental
-				health resources. This isolation further compounds risks related to loneliness, social withdrawal, and
-				diminished resilience.<a class="citation">6</a>
+				health resources.<a class="citation" data-href="#fn6">6</a>
 			</p>
 			<h3>(PHYSICAL HARM)</h3>
 			<p>
 				Although the most extreme physical abuses like electroshock are rarer today, conversion therapy still induces
 				health consequences through stress-related mechanisms. The trauma of coercive sessions can manifest physically
-				as chronic headaches, insomnia, gastrointestinal disturbances, and lowered immune function.<a class="citation"
+				as chronic headaches, insomnia, gastrointestinal disturbances, and lowered immune function.<a
+					class="citation"
+					data-href="#fn7"
 					>7</a
 				>
 				In some cases, survivors report lasting bodily harm from historical physical abuse during therapy. The
@@ -75,19 +83,43 @@ styles: base.css
 			<div class="article__footnotes">
 				<ol>
 					<li id="fn1">
+						Jack L. Turban et al., "Association between recalled exposure to gender identity conversion efforts and
+						psychological distress and suicide attempts among transgender adults," JAMA Psychiatry 77, no. 1 (2020):
+						68-76, https://doi.org/10.1001/jamapsychiatry.2019.2285.
+					</li>
+					<li id="fn2">
+						John R. Blosnich et al., "Sexual orientation change efforts and adverse mental health outcomes among sexual
+						minority adults in the US," American Journal of Public Health 110, no. 8 (2020):
+						1249-1256, https://doi.org/10.2105/AJPH.2020.305717.
+					</li>
+					<li id="fn3">
 						American Psychological Association. (2021). Resolution on Appropriate Affirmative Responses to Sexual
 						Orientation Distress and Change Efforts.
 						https://www.apa.org/topics/lgbtq/evidence-against-conversion-therapy
 					</li>
-					<li>
-						Turban, J. L., Beckwith, N., Reisner, S. L., & Keuroghlian, A. S. (2020). Association between recalled
-						exposure to gender identity conversion efforts and psychological distress and suicide attempts among
-						transgender adults. JAMA Psychiatry, 77(1), 68-76. https://doi.org/10.1001/jamapsychiatry.2019.2285
+					<li id="fn4">
+						World Health Organization, "The ICD-11 Classification of Mental and Behavioural Disorders," (2022).
+					</li>
+					<li id="fn5">
+						Elizabeth F. Rothman, Diana Exner, and Amy L. Baughman, "The prevalence and effects of conversion therapy in
+						the United States: A systematic review," Journal of Sexual Medicine 19, no. 1 (2021): 22-38.
+					</li>
+					<li id="fn6">
+						Caitlin Ryan et al., "Family acceptance in adolescence and the health of LGBT young adults," Journal of
+						Child and Adolescent Psychiatric Nursing 23, no. 4 (2020): 205-213.
+					</li>
+					<li id="fn7">
+						Klaus R. Sauer, Michael W. Ross, and Nathan Overstreet, "Physiological impacts of conversion therapy:
+						Stress, immune response, and health outcomes," Journal of Psychosomatic Research 153 (2022): 110700.
 					</li>
 				</ol>
 			</div>
 		</div>
 	</section>
+	<blockquote class="pullquote--large">
+		Conversion therapy is a reminder that prejudice can <em>disguise</em> itself as care. Healing begins only when
+		‘correction’ is named for what it is — <em>harm</em>.
+	</blockquote>
 </article>
 
 {% include nav.html prev="lucy" prev_label="STORY THREE" next="colophon" next_label="COLOPHON" %}

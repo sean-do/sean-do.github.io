@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'responsive' as *;
 
 @mixin bg-glow {
 	position: relative;
@@ -7,10 +8,15 @@
 		content: '';
 		position: absolute;
 		z-index: 99;
-		inset: -1.5em;
-		border: solid 1.25em;
-		border-image: radial-gradient(circle, var(--c-bg-cta)) 1;
-		filter: blur(1em);
+		inset: -1em;
+		border: solid 1.5em;
+		// mask-image: radial-gradient(circle, transparent 80%, black 100%);
+		// background: var(--c-t-cover);
+		border-image: radial-gradient(circle, var(--c-bg-cover) 0%, var(--c-t-cover) 60%);
+		border-image-slice: 1;
+		// border-image-repeat: stretch;
+		// radial-gradient(circle, var(--c-text-cover)) 1;
+		filter: blur(0.8em);
 		pointer-events: none;
 	}
 }
@@ -27,12 +33,36 @@
 	text-shadow: 0 0 $size $colour;
 }
 
-@mixin padding-article {
-	padding: v.$s-s v.$s-s;
+@mixin text-indent {
+	p {
+		text-indent: v.$s-l;
+		@include responsive(s) {
+			text-indent: v.$s-m;
+		}
+	}
+	p:first-of-type {
+		text-indent: 0;
+	}
 }
 
-@mixin flex-nav {
-	display: flex;
-	justify-content: space-between;
+@mixin padding-article {
+	padding: v.$s-s v.$s-s;
+	@include responsive(s) {
+		padding: v.$s-s v.$s-xs;
+	}
+}
+
+@mixin padding-subheading {
 	padding: v.$s-xxs v.$s-s;
+	@include responsive(s) {
+		padding: v.$s-xxs v.$s-xs;
+	}
+}
+
+@mixin flex($x: space-between, $y: center, $gap: v.$s-xxs, $direction: row) {
+	display: flex;
+	justify-content: $x;
+	align-items: $y;
+	gap: $gap;
+	flex-direction: $direction;
 }
