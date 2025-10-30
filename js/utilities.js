@@ -8,8 +8,13 @@ export const scrollToTop = () => {
 	window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+export const setViewportHeight = () => {
+	const vh = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
+
 export const resizeQuote = quote => {
 	const runningHeading = document.querySelector('.article__running-heading')
-	const svh = window.innerHeight
-	quote.style.setProperty('--min-height', `${svh - runningHeading.offsetHeight}px`)
+	const vh = window.innerHeight
+	quote.style.setProperty('--min-height', `${vh - runningHeading.offsetHeight}px`)
 }

@@ -6,7 +6,7 @@
 
 // FRONT COVER
 .front-cover {
-	min-height: 100svh;
+	min-height: calc(var(--vh, 1vh) * 100);
 	@include g.grid(1, v.$s-l);
 	align-content: space-between;
 	justify-content: stretch;
@@ -50,17 +50,24 @@
 	--box-shadow-blur: 2px;
 	position: relative;
 	border-radius: 4%;
-	// transition: transform 400ms;
-	// &:hover {
-	// 	--rotate-deg: 0deg;
-	// }
 	top: var(--top);
 	bottom: var(--bottom);
 	left: var(--left);
 	right: var(--right);
+	&--3-2 {
+		aspect-ratio: 3 / 2;
+	}
+	&--4-5 {
+		aspect-ratio: 4 / 5;
+	}
 	&--hover {
 		cursor: none;
 		figcaption {
+			@include responsive(m) {
+				--mouse-x: 50%;
+				--mouse-y: 100%;
+				transform: translate(-50%, v.$s-xxs);
+			}
 			position: absolute;
 			left: var(--mouse-x);
 			top: var(--mouse-y);
@@ -138,23 +145,14 @@ img {
 	border-radius: inherit;
 }
 
-.article__cover-image img {
-	// transform: perspective(5000px) rotateX(20deg) rotateY(20deg);
-	box-shadow: 0 0 8px var(--c-t-cover);
-}
-
 // ARTICLES
 
 .article {
 	.cover-wrapper {
-		height: 100svh;
+		height: calc(var(--vh, 1vh) * 100);
 		background: var(--c-bg-cover);
 		@include u.bg-glow;
 		align-content: center;
-		@include responsive(m) {
-			// height: auto;
-			min-height: 100svh;
-		}
 	}
 
 	&__cover {
@@ -168,29 +166,22 @@ img {
 		color: var(--c-t-cover);
 
 		@include responsive(m) {
-			gap: v.$s-s;
-			// @include u.flex(center, stretch, v.$s-s, column);
-			// &:not(.magnifying-container) * {
-			// 	place-self: center !important;
-			// 	text-align: center !important;
-			// }
+			justify-content: space-between;
 		}
-
-		// responsive
-		// width: min(100%, 1600px);
-		// justify-self: center;
 
 		// create new stacking context
 		isolation: isolate;
 		.article__title {
 			@include u.text-glow(large);
 			display: contents;
+			@include responsive(m) {
+				@include u.flex(start, center, v.$s-xs, column);
+			}
 			*:not(em) {
 				@extend .trim-heading;
 			}
 			&--top {
 				grid-area: title-top;
-				// transition: z-index 300ms;
 				transition: transform 0.3s ease, z-index 0.3s linear;
 			}
 			&--middle {
@@ -215,8 +206,10 @@ img {
 		}
 		.article__cover-image {
 			grid-area: image;
+			box-shadow: 0 0 8px var(--c-t-cover);
+			max-width: 100%;
 			@include responsive(s) {
-				height: 40svh;
+				height: 40%;
 			}
 			@media (max-height: 600px) {
 				display: none;
@@ -260,7 +253,7 @@ img {
 			@include g.grid__item(1, 4, 2, 3);
 			@include g.grid(2, 0, 0, false);
 			@include g.grid--center;
-			height: 100svh;
+			height: calc(var(--vh, 1vh) * 100);
 			position: sticky;
 			top: 0;
 			.image-container {
@@ -312,21 +305,15 @@ img {
 
 		// RESPONSIVE ARTICLE BODY
 		@include responsive(m) {
-			row-gap: 10svh;
+			row-gap: calc(var(--vh, 1vh) * 10);
 			&__images {
 				height: min-content;
 				position: static;
-				// .image-container {
-				// 	width: 60%;
-				// }
 			}
-		}
-		@include responsive(s) {
 		}
 	}
 	&__fullscreen-quote {
-		// min-height: 100svh;
-		--min-height: 100svh;
+		// --min-height: calc(var(--vh, 1vh) * 100);;
 		min-height: var(--min-height);
 		@include g.grid(6);
 		// &.image-container {
@@ -335,6 +322,9 @@ img {
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 		align-self: stretch;
+		@include responsive(m) {
+			height: var(--min-height);
+		}
 		img {
 			position: absolute;
 			inset: 0;
@@ -394,7 +384,7 @@ img {
 	@extend %text-pullquote-large;
 	margin: v.$s-l 0 v.$s-m;
 	width: calc(100% / 3 * 4);
-	min-height: 75svh;
+	min-height: calc(var(--vh, 1vh) * 75);
 	@include g.place-self(center);
 	place-content: center;
 	pointer-events: none;
@@ -409,11 +399,11 @@ img {
 		.image-container {
 			width: 50%;
 			&:first-child {
-				margin-top: 15%;
+				// margin-top: 15%;
 				margin-left: 20%;
 			}
 			&:nth-child(2) {
-				margin-bottom: 15%;
+				// margin-bottom: 15%;
 				margin-right: 20%;
 			}
 		}
@@ -422,8 +412,9 @@ img {
 
 [data-theme='truth'] .pullquote--large {
 	width: 100%;
-	min-height: 100svh;
+	min-height: calc(var(--vh, 1vh) * 100);
 	margin: 0;
+	@include u.padding-article;
 	background-color: var(--c-t-cover);
 	color: var(--c-bg-cover);
 }
@@ -439,7 +430,7 @@ img {
 		'meta-bottom  meta-bottom  meta-bottom  meta-bottom  meta-bottom  meta-bottom';
 
 	.article__cover-image {
-		height: 50svh;
+		max-height: 140%;
 		min-height: 250px;
 	}
 	.article__title--bottom {
@@ -578,6 +569,7 @@ img {
 	transition: background 300ms, color 300ms;
 	font-weight: 700;
 	padding: v.$s-xxs;
+	cursor: pointer;
 	&:hover {
 		background-color: var(--c-t-body);
 		color: var(--c-t-cover);
@@ -658,9 +650,9 @@ img {
 
 // COLOPHON
 .colophon {
-	min-height: 100svh;
+	min-height: calc(var(--vh, 1vh) * 100);
 	min-width: 100vw;
-	@include g.grid(6);
+	@include g.grid(6, $gap-column: 0);
 	@extend %text-body-small;
 	@include responsive(m) {
 		flex-direction: column-reverse;
@@ -739,6 +731,7 @@ img {
 		position: absolute;
 		background: var(--c-t-body);
 		inset: 0;
+		height: 100%;
 		margin: auto;
 		pointer-events: none;
 		@include responsive(m) {
